@@ -2,3 +2,7 @@
 helper/__pycache__
 .venv
 dist
+helper/*
+uv.lock
+pyproject.toml
+.python-version
