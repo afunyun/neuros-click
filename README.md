@@ -18,6 +18,10 @@ Possible tasks:
 
 ## Helper Script
 
+superbox h8s python but i like it
+
+note: 0 python is required to actually deploy this page whatsoever, it is entirely separate and does not interact with the actual site content other than the helper appending a json entry.
+
 To add a page to the site, run:
 
 ```bash

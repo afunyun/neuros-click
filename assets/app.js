@@ -80,9 +80,9 @@ function renderCards(items) {
   document.getElementById('page-title').textContent = site.title ?? 'neuros.click';
   document.getElementById('page-desc').textContent = site.description ?? '';
   const cta = document.getElementById('primary-cta');
-  if (site?.cta?.label && site?.cta?.href) {
-    cta.textContent = site.cta.label;
-    cta.href = site.cta.href;
+  if (cta) {
+    cta.textContent = 'neurocord';
+    cta.href = 'https://discord.com/invite/neurosama';
     cta.hidden = false;
   }
   document.getElementById('foot').textContent = site.footer ?? '';
