@@ -1,28 +1,30 @@
-a website for neuro sama community ran site aggregation (manual)
+# A Website for Neuro Sama Community Ran Site Aggregation (Manual)
 
 ## TODO
 
-pending
+Pending
 
-possible:
+Possible tasks:
 
-- fix color scheme & fix random ui quirks from being hastily put together
+- Fix color scheme & random UI quirks from being hastily put together
 
-# status
+## Status
 
-- static page which loads static json data and displays it in a card layout
-- small helper to make adding pages less manual (still pretty manual) info below
-- the small helper added like 30000 files because python, my bad
+- Static page which loads static JSON data and displays it in a card layout
+- Small helper to make adding pages less manual (still pretty manual), info below
+- The small helper added ~30,000 files because Python—my bad
 
-## Helper script
+## Helper Script
 
-If you want to add a page to the site, you can run something like:
+To add a page to the site, run:
 
 ```bash
 python3 add_page.py --name "Title" --description "Text" --image "assets/images/x.png" --href "/path"
 ```
 
-### if you want you can also install add_page.py locally either in a venv or system wide
+### Install `add_page.py` Locally
+
+You can install `add_page.py` locally in a virtual environment or system-wide:
 
 ```bash
 uv venv
@@ -30,25 +32,23 @@ source .venv/bin/activate
 uv pip install -e .
 ```
 
-### then you can run it essentially wherever you are with
+Then you can run it from anywhere with:
 
 ```bash
 add-page --name "Title" --description "Text" --image "assets/images/x.png" --href "/path"
 ```
 
-### add_page.py notes (in file too)
+### `add_page.py` Notes
 
-- data/pages.json should be an array of objects. wont explode if it's an object but will be upset
-- clogs up your repo with .bak backup before writing. Secure!
-- Use --fake see if you're doing it right before destroying your pages.json, example:
+- `data/pages.json` should be an array of objects. It won't break if it's an object, but will be upset.
+- Creates a `.bak` backup before writing. Secure!
+- Use `--fake` to preview changes before modifying `pages.json`. Example:
 
-run:
-
-```sh
+```bash
 add-page --name "Title" --description "Text" --image "assets/images/x.png" --href "/path" --fake
 ```
 
-you'll see:
+Output:
 
 ```json
 Would append the following entry to data/pages.json:
