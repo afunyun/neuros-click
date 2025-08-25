@@ -1,0 +1,16 @@
+{
+  "pages": [
+    {
+      "name": "neuros.click page file example",
+      "description": "this is an example of a page listing",
+      "image": "",
+      "href": "#"
+    },
+    {
+      "name": "the file to edit is data/pages.json",
+      "description": "could also be just root/pages.json if you prefer",
+      "image": "",
+      "href": "#"
+    }
+  ]
+}
