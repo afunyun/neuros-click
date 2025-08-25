@@ -1,4 +1,6 @@
-# A Website for Neuro Sama Community Ran Site Aggregation (Manual)
+# neuro links (click them)
+
+site for hosting aggregated list of maintained neuro-sama related projects & websites in a simple card layout
 
 ## TODO
 
