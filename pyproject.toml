@@ -13,7 +13,7 @@ add-page = "helper.add_page:main"
 requires = ["hatchling>=1.25.0"]
 build-backend = "hatchling.build"
 
-[tool.uv]
+[tool.uv] 
 package = false
 
 [tool.hatch.build.targets.wheel]
