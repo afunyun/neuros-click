@@ -1,1 +1,3 @@
 .github/docs/*
+helper/__pycache__
+.venv

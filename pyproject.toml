@@ -1,0 +1,20 @@
+[project]
+name = "neuros-click"
+version = "0.1.0"
+description = "one(1) helper script that uses python is in this repo"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+add-page = "helper.add_page:main"
+
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = false
+
+[tool.hatch.build.targets.wheel]
+packages = ["helper"]

@@ -1,49 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>neuros.click</title>
-    <style>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>neuros.click</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #444444;
+      --border: #e2e8f0;
+      --card: #f8fafc;
+      --accent: #2563eb;
+      --accent-contrast: #ffffff;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
+      --radius: 16px;
+      --gap: 16px;
+      --maxw: 980px;
+    }
+
+    @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #ffffff;
-        --text: #111111;
-        --muted: #444444;
-        --border: #e2e8f0;
-        --card: #f8fafc;
-        --accent: #2563eb;
-        --accent-contrast: #ffffff;
-        --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
-        --radius: 16px;
-        --gap: 16px;
-        --maxw: 980px;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #0b1117;
-          --text: #e5e7eb;
-          --muted: #9aa4b2;
-          --border: #1f2937;
-          --card: #111827;
-          --accent: #eab308;
-          --accent-contrast: #111827;
-          --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-      }
-
-      html[data-theme="light"] {
-        --bg: #ffffff;
-        --text: #111;
-        --muted: #444;
-        --border: #e2e8f0;
-        --card: #f8fafc;
-        --accent: #2563eb;
-        --accent-contrast: #fff;
-        --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
-      }
-
-      html[data-theme="dark"] {
         --bg: #0b1117;
         --text: #e5e7eb;
         --muted: #9aa4b2;
@@ -53,300 +31,308 @@
         --accent-contrast: #111827;
         --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
       }
+    }
 
-      * {
-        box-sizing: border-box;
-      }
+    html[data-theme='light'] {
+      --bg: #ffffff;
+      --text: #111;
+      --muted: #444;
+      --border: #e2e8f0;
+      --card: #f8fafc;
+      --accent: #2563eb;
+      --accent-contrast: #fff;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
 
-      body {
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-          Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial,
-          "Apple Color Emoji", "Segoe UI Emoji";
-        color: var(--text);
-        background: radial-gradient(
-            1200px 600px at 50% -200px,
-            color-mix(in lab, var(--accent) 10%, transparent),
-            transparent
-          ),
-          var(--bg);
-      }
+    html[data-theme='dark'] {
+      --bg: #0b1117;
+      --text: #e5e7eb;
+      --muted: #9aa4b2;
+      --border: #1f2937;
+      --card: #111827;
+      --accent: #eab308;
+      --accent-contrast: #111827;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
 
-      .wrap {
-        max-width: var(--maxw);
-        margin: 0 auto;
-        padding: 24px;
-      }
+    * {
+      box-sizing: border-box;
+    }
 
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--gap);
-        margin-bottom: 16px;
-      }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+        Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji',
+        'Segoe UI Emoji';
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 50% -200px,
+          color-mix(in lab, var(--accent) 10%, transparent),
+          transparent),
+        var(--bg);
+    }
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-      .logo {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: linear-gradient(
-          135deg,
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--gap);
+      margin-bottom: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg,
           var(--accent),
-          color-mix(in lab, var(--accent), var(--bg) 40%)
-        );
-        box-shadow: var(--shadow);
+          color-mix(in lab, var(--accent), var(--bg) 40%));
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: clamp(1.2rem, 1rem + 1.8vw, 2rem);
+      margin: 0;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border-color: color-mix(in lab, var(--accent), var(--bg) 40%);
+    }
+
+    .lede {
+      color: var(--muted);
+      margin: 8px 0 24px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 24px 0 8px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: clip;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 0;
+      min-height: 80px;
+      width: 100%;
+    }
+
+    .card .thumb {
+      width: 120px;
+      min-width: 120px;
+      background: color-mix(in lab, var(--accent), var(--bg) 85%);
+      display: grid;
+      place-items: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card .thumb span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .card .body {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .card .title {
+      font-weight: 700;
+    }
+
+    .card .desc {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .card a.stretch {
+      position: relative;
+    }
+
+    .card a.stretch::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 32px 0 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1 id="page-title">neuros.click</h1>
+      </div>
+      <div class="toolbar">
+        <button id="theme-btn" class="btn" title="Toggle theme">Toggle theme</button>
+        <a class="btn primary" href="#" id="primary-cta" hidden>Open</a>
+      </div>
+    </header>
+
+    <p id="page-desc" class="lede">page bwaa TODO:the .json file thing</p>
+
+    <h2>Pages</h2>
+    <p class="hint">cards below bwaa TODO:the .json file thing</p>
+
+    <div id="grid" class="grid" role="list"></div>
+
+    <footer>
+      <span id="foot"></span>
+    </footer>
+  </div>
+
+  <script>
+    (function themeControl() {
+      const html = document.documentElement;
+      const btn = document.getElementById('theme-btn');
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') html.setAttribute('data-theme', saved);
+      btn.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next =
+          current === 'dark' ? 'light' : current === 'light' ? 'auto' : 'dark';
+        if (next === 'auto') html.setAttribute('data-theme', 'auto');
+        else html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        btn.textContent = next === 'auto' ? 'Theme: auto' : `Theme: ${next}`;
+      });
+      btn.textContent =
+        (saved ?? 'auto') === 'auto' ? 'Theme: auto' : `Theme: ${saved}`;
+    })();
+
+    async function loadJSON(path) {
+      try {
+        const res = await fetch(path, { cache: 'no-store' });
+        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+        return await res.json();
+      } catch (err) {
+        console.warn(`Could not load ${path}:`, err);
+        return null;
       }
+    }
 
-      h1 {
-        font-size: clamp(1.2rem, 1rem + 1.8vw, 2rem);
-        margin: 0;
-      }
-
-      .toolbar {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .btn {
-        appearance: none;
-        border: 1px solid var(--border);
-        background: var(--card);
-        color: var(--text);
-        padding: 8px 12px;
-        border-radius: 12px;
-        cursor: pointer;
-        box-shadow: var(--shadow);
-      }
-
-      .btn.primary {
-        background: var(--accent);
-        color: var(--accent-contrast);
-        border-color: color-mix(in lab, var(--accent), var(--bg) 40%);
-      }
-
-      .lede {
-        color: var(--muted);
-        margin: 8px 0 24px;
-        line-height: 1.6;
-      }
-
-      h2 {
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        margin: 24px 0 8px;
-        color: var(--muted);
-        text-transform: uppercase;
-      }
-
-      .hint {
-        color: var(--muted);
-        font-size: 0.95rem;
-        margin-bottom: 16px;
-      }
-
-      .grid {
-        display: flex;
-        flex-direction: column;
-        gap: var(--gap);
-      }
-
-      .card {
-        border: 1px solid var(--border);
-        background: var(--card);
-        border-radius: var(--radius);
-        overflow: clip;
-        box-shadow: var(--shadow);
-        display: flex;
-        gap: 0;
-        min-height: 80px;
-        width: 100%;
-      }
-
-      .card .thumb {
-        width: 120px;
-        min-width: 120px;
-        background: color-mix(in lab, var(--accent), var(--bg) 85%);
-        display: grid;
-        place-items: center;
-        border-right: 1px solid var(--border);
-      }
-
-      .card .thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .card .thumb span {
-        color: var(--muted);
-        font-size: 0.8rem;
-        padding: 8px;
-        text-align: center;
-      }
-
-      .card .body {
-        padding: 14px 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        justify-content: center;
-      }
-
-      .card .title {
-        font-weight: 700;
-      }
-
-      .card .desc {
-        color: var(--muted);
-        line-height: 1.5;
-      }
-
-      .card a.stretch {
-        position: relative;
-      }
-
-      .card a.stretch::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-      }
-
-      footer {
-        color: var(--muted);
-        font-size: 0.9rem;
-        margin: 32px 0 12px;
-        text-align: center;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="wrap">
-      <header>
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <h1 id="page-title">neuros.click</h1>
-        </div>
-        <div class="toolbar">
-          <button id="theme-btn" class="btn" title="Toggle theme">
-            Toggle theme
-          </button>
-          <a class="btn primary" href="#" id="primary-cta" hidden>Open</a>
-        </div>
-      </header>
-
-      <p id="page-desc" class="lede">page bwaa TODO:the .json file thing</p>
-
-      <h2>Pages</h2>
-      <p class="hint">cards below bwaa TODO:the .json file thing</p>
-
-      <div id="grid" class="grid" role="list"></div>
-
-      <footer>
-        <span id="foot"></span>
-      </footer>
-    </div>
-
-    <script>
-      (function themeControl() {
-        const html = document.documentElement;
-        const btn = document.getElementById("theme-btn");
-        const saved = localStorage.getItem("theme");
-        if (saved === "light" || saved === "dark")
-          html.setAttribute("data-theme", saved);
-        btn.addEventListener("click", () => {
-          const current = html.getAttribute("data-theme");
-          const next =
-            current === "dark"
-              ? "light"
-              : current === "light"
-              ? "auto"
-              : "dark";
-          if (next === "auto") html.setAttribute("data-theme", "auto");
-          else html.setAttribute("data-theme", next);
-          localStorage.setItem("theme", next);
-          btn.textContent = next === "auto" ? "Theme: auto" : `Theme: ${next}`;
-        });
-        btn.textContent =
-          (saved ?? "auto") === "auto" ? "Theme: auto" : `Theme: ${saved}`;
-      })();
-
-      async function loadJSON(path) {
-        try {
-          const res = await fetch(path, { cache: "no-store" });
-          if (!res.ok) throw new Error(res.status + " " + res.statusText);
-          return await res.json();
-        } catch (err) {
-          console.warn(`Could not load ${path}:`, err);
-          return null;
-        }
-      }
-
-      function renderCards(items) {
-        const grid = document.getElementById("grid");
-        grid.innerHTML = "";
-        for (const item of items) {
-          const a = document.createElement("a");
-          a.href = item.href || "#";
-          a.className = "card stretch";
-          a.role = "listitem";
-          a.innerHTML = `
-          <div class="thumb">${
-            item.image
-              ? `<img src="${item.image}" alt="">`
-              : `<span>image</span>`
+    function renderCards(items) {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+      for (const item of items) {
+        const a = document.createElement('a');
+        a.href = item.href || '#';
+        a.className = 'card stretch';
+        a.role = 'listitem';
+        a.innerHTML = `
+          <div class="thumb">${item.image ? `<img src="${item.image}" alt="">` : `<span>image</span>`
           }</div>
           <div class="body">
-            <div class="title">${item.name ?? "Untitled"}</div>
-            <div class="desc">${item.description ?? ""}</div>
+            <div class="title">${item.name ?? 'Untitled'}</div>
+            <div class="desc">${item.description ?? ''}</div>
           </div>`;
-          grid.appendChild(a);
-        }
+        grid.appendChild(a);
       }
+    }
 
-      (async function bootstrap() {
-        const site = (await loadJSON("site.json")) || {
-          title: "neuros.click",
-          description: "HAVENT DONE the .json file thing",
-          cta: { label: "Open", href: "#" },
-          footer: "© " + new Date().getFullYear() + " bwaa",
-        };
-        document.getElementById("page-title").textContent =
-          site.title ?? "neuros.click";
-        document.getElementById("page-desc").textContent =
-          site.description ?? "";
-        const cta = document.getElementById("primary-cta");
-        if (site?.cta?.label && site?.cta?.href) {
-          cta.textContent = site.cta.label;
-          cta.href = site.cta.href;
-          cta.hidden = false;
-        }
-        document.getElementById("foot").textContent = site.footer ?? "";
+    (async function bootstrap() {
+      const site = (await loadJSON('site.json')) || {
+        title: 'neuros.click',
+        description: 'HAVENT DONE the .json file thing',
+        cta: { label: 'Open', href: '#' },
+        footer: '© ' + new Date().getFullYear() + ' bwaa',
+      };
+      document.getElementById('page-title').textContent = site.title ?? 'neuros.click';
+      document.getElementById('page-desc').textContent = site.description ?? '';
+      const cta = document.getElementById('primary-cta');
+      if (site?.cta?.label && site?.cta?.href) {
+        cta.textContent = site.cta.label;
+        cta.href = site.cta.href;
+        cta.hidden = false;
+      }
+      document.getElementById('foot').textContent = site.footer ?? '';
 
-        const data = (await loadJSON("pages.json")) || {
-          pages: [
-            {
-              name: "Example Page",
-              description: "A description of the page goes here.",
-              image: "",
-              href: "#",
-            },
-            { name: "add page", description: "cust", image: "", href: "#" },
-            { name: "thru", description: "json", image: "", href: "#" },
-          ],
-        };
-        renderCards(data.pages || []);
-      })();
-    </script>
-  </body>
+      const data = (await loadJSON('pages.json')) || {
+        pages: [
+          {
+            name: 'Example Page',
+            description: 'A description of the page goes here.',
+            image: '',
+            href: '#',
+          },
+          { name: 'add page', description: 'cust', image: '', href: '#' },
+          { name: 'thru', description: 'json', image: '', href: '#' },
+        ],
+      };
+      renderCards(data.pages || []);
+    })();
+  </script>
+</body>
+
 </html>
