@@ -1,13 +1,14 @@
 a website for neuro sama community ran site aggregation (manual)
 
-## TODO:
+## TODO
+
 pending
 
 possible:
 
- - fix color scheme & fix random ui quirks from being hastily put together
+- fix color scheme & fix random ui quirks from being hastily put together
 
-# status:
+# status
 
 - static page which loads static json data and displays it in a card layout
 - small helper to make adding pages less manual (still pretty manual) info below
@@ -16,6 +17,7 @@ possible:
 ## Helper script
 
 If you want to add a page to the site, you can run something like:
+
 ```bash
 python3 add_page.py --name "Title" --description "Text" --image "assets/images/x.png" --href "/path"
 ```
@@ -28,7 +30,8 @@ source .venv/bin/activate
 uv pip install -e .
 ```
 
-### then you can run it essentially wherever you are with:
+### then you can run it essentially wherever you are with
+
 ```bash
 add-page --name "Title" --description "Text" --image "assets/images/x.png" --href "/path"
 ```
@@ -40,6 +43,7 @@ add-page --name "Title" --description "Text" --image "assets/images/x.png" --hre
 - Use --fake see if you're doing it right before destroying your pages.json, example:
 
 run:
+
 ```sh
 add-page --name "Title" --description "Text" --image "assets/images/x.png" --href "/path" --fake
 ```

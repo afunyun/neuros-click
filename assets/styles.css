@@ -12,16 +12,16 @@
   --maxw: 980px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --bg: #0b1117;
-    --text: #e5e7eb;
-    --muted: #9aa4b2;
-    --border: #1f2937;
-    --card: #111827;
-    --accent: #eab308;
-    --accent-contrast: #111827;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
+    --bg: #ffffff;
+    --text: #111;
+    --muted: #444;
+    --border: #e2e8f0;
+    --card: #f8fafc;
+    --accent: #2563eb;
+    --accent-contrast: #fff;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -42,7 +42,7 @@ html[data-theme='dark'] {
   --muted: #9aa4b2;
   --border: #1f2937;
   --card: #111827;
-  --accent: #eab308;
+  --accent: #df08ea;
   --accent-contrast: #111827;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
@@ -56,7 +56,7 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
     Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
   color: var(--text);
-  background: radial-gradient(1200px 600px at 50% -200px,
+  background: radial-gradient(2400px 1200px at 50% -200px,
       color-mix(in lab, var(--accent) 10%, transparent),
       transparent),
     var(--bg);
@@ -212,6 +212,13 @@ h2 {
 footer {
   color: var(--muted);
   font-size: 0.9rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  padding: 12px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
   margin: 32px 0 12px;
   text-align: center;
 }
