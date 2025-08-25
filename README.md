@@ -1,4 +1,4 @@
-a website for neuro sama community ran site aggreagation (manual)
+a website for neuro sama community ran site aggregation (manual)
 
 ## TODO:
 pending
