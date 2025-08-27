@@ -1,9 +1,9 @@
 {
   "title": "neuros.click",
-  "description": "Neurosama community links aggregator",
+  "description": "Centralized source for Neuro-sama related websites created by Superbox of the Neuro-sama Discord",
   "cta": {
-    "label": "Open",
-    "href": "#"
+    "label": "Neurocord",
+    "href": "https://discord.com/invite/neurosama"
   },
   "footer": "© nwerobwaa"
 }
