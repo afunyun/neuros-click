@@ -90,8 +90,8 @@ function renderCards(items) {
   const data = (await loadJSON('data/pages.json')) || {
     pages: [
       { name: 'Example Page', description: 'Add description here', image: '', href: '#' },
-      { name: 'add page', description: 'cust', image: '', href: '#' },
-      { name: 'thru', description: 'json', image: '', href: '#' },
+      { name: 'PH', description: 'PH', image: '', href: '#' },
+      { name: 'PH', description: 'PH', image: '', href: '#' },
     ],
   };
   renderCards(data.pages || []);
