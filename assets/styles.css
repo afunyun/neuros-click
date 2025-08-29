@@ -16,6 +16,20 @@
   --danger: #e24d5e;
   --charcoal: #2a2a2a;
   --neutral: #b58e79;
+
+  --bg-accent-radial-start: rgba(124, 219, 211, 0.1);
+  --logo-accent-tint: #bdebe7;
+  --accent-border: #bdebe7;
+  --accent-hover: #6bcfc6;
+  --thumb-bg: #f2faf9;
+  --link-underline: rgba(226, 77, 94, 0.5);
+  --link-hover: #f06b7a;
+  --focus-outline: rgba(226, 77, 94, 0.85);
+  --hint-bg: rgba(181, 142, 121, 0.2);
+  --hint-border: rgba(137, 62, 93, 0.6);
+  --neutral-border: #9b7a66;
+  --neutral-hover: #c9ad97;
+  --surface-neutral-bg: #f3e9e1;
 }
 
 @font-face {
@@ -54,6 +68,20 @@ html[data-theme='light'] {
   --danger: #c72e49;
   --charcoal: #222222;
   --neutral: #e7d5b8;
+
+  --bg-accent-radial-start: rgba(124, 219, 211, 0.1);
+  --logo-accent-tint: #bdebe7;
+  --accent-border: #bdebe7;
+  --accent-hover: #6bcfc6;
+  --thumb-bg: #f2faf9;
+  --link-underline: rgba(199, 46, 73, 0.5);
+  --link-hover: #d45165;
+  --focus-outline: rgba(199, 46, 73, 0.85);
+  --hint-bg: rgba(231, 213, 184, 0.25);
+  --hint-border: rgba(201, 198, 224, 0.6);
+  --neutral-border: #c1a987;
+  --neutral-hover: #ecdcc3;
+  --surface-neutral-bg: #f7efe6;
 }
 
 html[data-theme='dark'] {
@@ -65,12 +93,26 @@ html[data-theme='dark'] {
   --accent: #6b1f2c;
   --accent-contrast: #ffffff;
   --shadow: 0 1px 2px rgba(18, 18, 18, 0.6), 0 8px 24px rgba(18, 18, 18, 0.5);
-  --link: #e24d5e;
+  --link: #ff6f81;
   --success: #63a861;
   --warning: #e9783a;
   --danger: #e24d5e;
   --charcoal: #2a2a2a;
   --neutral: #b58e79;
+
+  --bg-accent-radial-start: rgba(107, 31, 44, 0.25);
+  --logo-accent-tint: #5a1a26;
+  --accent-border: #5a1a26;
+  --accent-hover: #7a2634;
+  --thumb-bg: #5a1a26;
+  --link-underline: rgba(226, 77, 94, 0.5);
+  --link-hover: #ff6f81;
+  --focus-outline: rgba(226, 77, 94, 0.85);
+  --hint-bg: #5a1a26;
+  --hint-border: rgba(74, 47, 46, 0.8);
+  --neutral-border: #8e6f5d;
+  --neutral-hover: #c9ad97;
+  --surface-neutral-bg: #1c1614;
 }
 
 * {
@@ -96,7 +138,7 @@ body {
   background:
     radial-gradient(
       farthest-corner at 50% -200px,
-      color-mix(in lab, var(--accent) 10%, transparent),
+  var(--bg-accent-radial-start),
       transparent
     ),
     var(--bg);
@@ -124,14 +166,12 @@ header {
 }
 
 .logo {
-  width: 36px;
-  height: 36px;
+  width: 64px;
+  height: 64px;
   border-radius: 10px;
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    color-mix(in lab, var(--accent), var(--bg) 40%)
-  );
+  background:
+    url('../neuro-logo.png') center/contain no-repeat,
+    linear-gradient(135deg, var(--accent), var(--logo-accent-tint));
   box-shadow: var(--shadow);
 }
 
@@ -175,11 +215,11 @@ h1 {
 .btn.primary {
   background: var(--accent);
   color: var(--accent-contrast);
-  border-color: color-mix(in lab, var(--accent), var(--bg) 40%);
+  border-color: var(--accent-border);
 }
 
 .btn.primary:hover {
-  background: color-mix(in lab, var(--accent), var(--accent-contrast) 15%);
+  background: var(--accent-hover);
 }
 
 .lede {
@@ -224,7 +264,7 @@ h2 {
 .card .thumb {
   width: 120px;
   min-width: 120px;
-  background: color-mix(in lab, var(--accent), var(--bg) 85%);
+  background: var(--thumb-bg);
   display: grid;
   place-items: center;
   border-right: 1px solid var(--border);
@@ -288,26 +328,26 @@ footer {
 a,
 a:visited {
   color: var(--link);
-  text-decoration-color: color-mix(in lab, var(--link), transparent 50%);
+  text-decoration-color: var(--link-underline);
 }
 
 a:hover {
-  color: color-mix(in lab, var(--link), var(--accent-contrast) 20%);
+  color: var(--link-hover);
 }
 
 a:focus-visible,
 .btn:focus-visible {
-  outline: 2px solid color-mix(in lab, var(--link), var(--accent-contrast) 15%);
+  outline: 2px solid var(--focus-outline);
   outline-offset: 2px;
 }
 
 html[data-theme='dark'] .card .thumb {
-  background: color-mix(in lab, var(--neutral), var(--bg) 75%);
+  background: var(--thumb-bg);
 }
 
 html[data-theme='dark'] .hint {
-  background: color-mix(in lab, var(--neutral), transparent 80%);
-  border: 1px solid color-mix(in lab, var(--border), transparent 40%);
+  background: var(--hint-bg);
+  border: 1px solid var(--hint-border);
   padding: 8px 12px;
   border-radius: 10px;
 }
@@ -315,26 +355,26 @@ html[data-theme='dark'] .hint {
 .btn.neutral {
   background: var(--neutral);
   color: var(--text);
-  border-color: color-mix(in lab, var(--neutral), var(--charcoal) 30%);
+  border-color: var(--neutral-border);
 }
 
 .btn.neutral:hover {
-  background: color-mix(in lab, var(--neutral), var(--accent-contrast) 12%);
+  background: var(--neutral-hover);
 }
 
 .surface-neutral {
-  background: color-mix(in lab, var(--neutral), var(--bg) 10%);
+  background: var(--surface-neutral-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
 html[data-theme='light'] .card .thumb {
-  background: color-mix(in lab, var(--neutral), var(--bg) 50%);
+  background: var(--thumb-bg);
 }
 
 html[data-theme='light'] .hint {
-  background: color-mix(in lab, var(--neutral), transparent 75%);
-  border: 1px solid color-mix(in lab, var(--border), transparent 40%);
+  background: var(--hint-bg);
+  border: 1px solid var(--hint-border);
   padding: 8px 12px;
   border-radius: 10px;
 }

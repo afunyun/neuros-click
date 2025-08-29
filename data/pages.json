@@ -19,15 +19,15 @@
       "href": "#"
     },
     {
-      "name": "the file to edit is data/pages.json",
-      "description": "could also be just root/pages.json if you prefer",
-      "image": "",
+      "name": "this one tests an image - image in root",
+      "description": "neuro-logo.png - transparent bg",
+      "image": "neuro-logo.png",
       "href": "#"
     },
     {
-      "name": "the file to edit is data/pages.json",
-      "description": "schizo",
-      "image": "",
+      "name": "this one tests another image - image in /assets/img/",
+      "description": "assets/img/hiyori-test.png - non transparent bg",
+      "image": "assets/img/hiyori-test.png",
       "href": "#"
     }
   ]
