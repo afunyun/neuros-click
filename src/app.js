@@ -104,7 +104,6 @@ function renderCards(items) {
     cta.hidden = false;
   }
   
-  // Insert current year dynamically into footer
   const currentYear = new Date().getFullYear();
   const footerText = site.footer ? site.footer.replace('©', `© ${currentYear}`) : `© ${currentYear} bwaa`;
   document.getElementById('foot').textContent = footerText;
