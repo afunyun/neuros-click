@@ -93,7 +93,7 @@ function renderCards(items) {
     title: 'neuros.click',
     description: 'json file thing done maybe',
     cta: { label: 'Open', href: '#' },
-    footer: '© ' + new Date().getFullYear() + ' bwaa',
+    footer: '© bwaa',
   };
   document.getElementById('page-title').textContent = site.title ?? 'neuros.click';
   document.getElementById('page-desc').textContent = site.description ?? '';
@@ -103,7 +103,11 @@ function renderCards(items) {
     cta.href = 'https://discord.com/invite/neurosama';
     cta.hidden = false;
   }
-  document.getElementById('foot').textContent = site.footer ?? '';
+  
+  // Insert current year dynamically into footer
+  const currentYear = new Date().getFullYear();
+  const footerText = site.footer ? site.footer.replace('©', `© ${currentYear}`) : `© ${currentYear} bwaa`;
+  document.getElementById('foot').textContent = footerText;
 
   const data = (await loadJSON('data/pages.json')) || {
     pages: [

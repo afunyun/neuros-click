@@ -13,10 +13,10 @@
       "href": "#"
     },
     {
-      "name": "the file to edit is data/pages.json",
-      "description": "could also be just root/pages.json if you prefer",
-      "image": "",
-      "href": "#"
+      "name": "link test",
+      "description": "entire card should link to https://neurosama.shop",
+      "image": "assets/img/vedal.png",
+      "href": "https://neurosama.shop"
     },
     {
       "name": "this one tests an image - image in root",
