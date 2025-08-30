@@ -35,7 +35,7 @@ neuros-click/
 |       ---> <any-site-image.png>
 ---> src/
 |   ---> styles.css
-|   ---> app.js          
+|   ---> app.js
 |   ---> fonts/
 |       ---> First Coffee.woff2
 ```
