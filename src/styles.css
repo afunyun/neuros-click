@@ -62,7 +62,7 @@
 
 @font-face {
   font-family: 'First Coffee';
-  src: url('./First Coffee.woff2') format('woff2');
+  src: url('./fonts/First Coffee.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -184,7 +184,7 @@ header {
   height: 64px;
   border-radius: 10px;
   background:
-    url('../neuro-logo.png') center/contain no-repeat,
+    url('/data/images/neuro-logo.png') center/contain no-repeat,
     linear-gradient(135deg, var(--accent), var(--logo-accent-tint));
   box-shadow: var(--shadow);
 }

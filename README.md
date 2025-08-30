@@ -20,3 +20,25 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 - defeated the helper menace 
 - css is comprehensible
 - overall works as a static site
+
+the folder structure was bad because i didnt plan properly so fixed that to make actual sense:
+
+```
+neuros-click/
+---> index.html
+---> data/
+|   ---> pages.json
+|   ---> site.json
+|   ---> images/
+|       ---> vedal.png
+|       ---> hiyori-test.png
+|       ---> <any-site-image.png>
+---> src/
+|   ---> styles.css
+|   ---> app.js          
+|   ---> fonts/
+|       ---> First Coffee.woff2
+```
+
+`index.html` loads `src/app.js` which loads `data/pages.json` pages meant to use assets in subfolders such as `data/images/`
+

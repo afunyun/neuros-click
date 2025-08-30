@@ -1,33 +1,21 @@
 {
   "pages": [
     {
-      "name": "neuros.click page file example",
-      "description": "this is an example of a page listing",
-      "image": "",
-      "href": "#"
-    },
-    {
-      "name": "the file to edit is data/pages.json",
-      "description": "could also be just root/pages.json if you prefer",
-      "image": "",
-      "href": "#"
-    },
-    {
       "name": "link test",
       "description": "entire card should link to https://neurosama.shop",
-      "image": "assets/img/vedal.png",
+      "image": "data/images/vedal.png",
       "href": "https://neurosama.shop"
     },
     {
-      "name": "this one tests an image - image in root",
-      "description": "neuro-logo.png - transparent bg",
-      "image": "neuro-logo.png",
+      "name": "test transparent site image",
+      "description": "data/images/neuro-logo.png - transparent bg",
+      "image": "data/images/neuro-logo.png",
       "href": "#"
     },
     {
-      "name": "this one tests another image - image in /assets/img/",
-      "description": "assets/img/hiyori-test.png - non transparent bg",
-      "image": "assets/img/hiyori-test.png",
+      "name": "image in /data/images/",
+      "description": "data/images/hiyori-test.png - non transparent bg",
+      "image": "data/images/hiyori-test.png",
       "href": "#"
     }
   ]
