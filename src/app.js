@@ -116,4 +116,123 @@ function renderCards(items) {
     ],
   };
   renderCards(data.pages || []);
+
+  const expanderHost = document.getElementById('client-expanders');
+  if (expanderHost) {
+    const clients = [
+      {
+        id: 'winscp',
+        name: 'WinSCP (Preferred)',
+        short: 'Easy setup for Windows. Supports .ini import.',
+        downloadUrl: 'https://winscp.net/eng/download.php',
+  icon: 'data/images/winscp-logo.png',
+        instructions: `
+1) Download and install WinSCP from the official site.
+2) Launch WinSCP and open Tools > Import/Export settings.
+3) To import a .ini config (if available): Options > Preferences > Import/Export > Import from INI file.
+4) Alternatively, in the Login dialog click Import and select the .ini file.
+5) After import, select the Neuro FTP entry and Login.`,
+  importLabel: 'Download WinSCP INI',
+  importHref: null, // TODO
+      },
+      {
+        id: 'filezilla',
+        name: 'FileZilla',
+        short: 'Cross‑platform. Supports .xml Site Manager import.',
+        downloadUrl: 'https://filezilla-project.org/download.php',
+  icon: 'data/images/filezilla-logo.png',
+        instructions: `
+1) Download and install FileZilla.
+2) Open FileZilla and go to File > Import.
+3) Choose the downloaded .xml configuration file.
+4) Open File > Site Manager, select the imported Neuro FTP entry.
+5) Click Connect to start.`,
+        importLabel: 'Download FileZilla XML',
+        importHref: 'data/share/neuros-click-filezilla.xml',
+      },
+    ];
+
+    function renderExpanders() {
+      expanderHost.innerHTML = '';
+      clients.forEach((c) => {
+        const container = document.createElement('div');
+        container.className = 'expander';
+        container.dataset.id = c.id;
+
+        const head = document.createElement('button');
+  head.className = 'btn primary expander-btn';
+        head.type = 'button';
+        head.setAttribute('aria-expanded', 'false');
+  head.innerHTML = `<span class="expander-thumb" aria-hidden="true"><img src="${c.icon}" alt="" loading="lazy" decoding="async" /></span><span class="expander-title">${c.name}</span>`;
+
+  const panel = document.createElement('div');
+  panel.className = 'expander-panel card';
+        panel.hidden = true;
+
+        const body = document.createElement('div');
+        body.className = 'body';
+
+        const title = document.createElement('div');
+        title.className = 'title';
+        title.textContent = c.name;
+
+        const desc = document.createElement('div');
+        desc.className = 'desc';
+        desc.textContent = c.short;
+
+        const list = document.createElement('div');
+        list.className = 'instructions';
+        list.innerHTML = c.instructions
+          .split('\n')
+          .filter(Boolean)
+          .map((line) => `<div class="step">${line}</div>`) 
+          .join('');
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+        const dl = document.createElement('a');
+        dl.className = 'btn primary';
+        dl.href = c.downloadUrl;
+        dl.target = '_blank';
+        dl.rel = 'noopener noreferrer';
+        dl.textContent = `Get ${c.name}`;
+
+        actions.appendChild(dl);
+        if (c.importHref) {
+          const importBtn = document.createElement('a');
+          importBtn.className = 'btn neutral';
+          importBtn.href = c.importHref;
+          importBtn.download = '';
+          importBtn.textContent = c.importLabel;
+          actions.appendChild(importBtn);
+        } else {
+          const note = document.createElement('div');
+          note.className = 'hint';
+          note.textContent = 'Import available soon.';
+          actions.appendChild(note);
+        }
+
+        body.appendChild(title);
+        body.appendChild(desc);
+        body.appendChild(list);
+        body.appendChild(actions);
+
+  panel.appendChild(body);
+
+        container.appendChild(head);
+        container.appendChild(panel);
+
+        head.addEventListener('click', () => {
+          const expanded = head.getAttribute('aria-expanded') === 'true';
+          head.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          panel.hidden = expanded;
+          container.classList.toggle('expanded', !expanded);
+        });
+
+        expanderHost.appendChild(container);
+      });
+    }
+
+    renderExpanders();
+  }
 })();

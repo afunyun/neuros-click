@@ -13,6 +13,12 @@
       "href": "#"
     },
     {
+      "name": "signature look of superiority",
+      "description": "data/images/signature-look.png - pink bg",
+      "image": "data/images/signature-look.png",
+      "href": "#"
+    },
+    {
       "name": "image in /data/images/",
       "description": "data/images/hiyori-test.png - non transparent bg",
       "image": "data/images/hiyori-test.png",

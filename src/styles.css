@@ -2,6 +2,8 @@
   --radius: 16px;
   --gap: 16px;
   --maxw: 980px;
+  
+  --logo-image: url('/data/images/neurov3-logo.png');
 
   --light-bg: #fbe7e8;
   --light-text: #222222;
@@ -46,7 +48,7 @@
   --dark-charcoal: #2a2a2a;
   --dark-neutral: #b58e79;
   --dark-bg-accent-radial-start: rgba(107, 31, 44, 0.25);
-  --dark-logo-accent-tint: #5a1a26;
+  --dark-logo-accent-tint: #fda3ad;
   --dark-accent-border: #5a1a26;
   --dark-accent-hover: #7a2634;
   --dark-thumb-bg: #5a1a26;
@@ -96,6 +98,7 @@ html[data-theme='light'] {
   --neutral-border: var(--light-neutral-border);
   --neutral-hover: var(--light-neutral-hover);
   --surface-neutral-bg: var(--light-surface-neutral-bg);
+  --logo-image: url('/data/images/neurov3-logo.png');
 }
 
 html[data-theme='dark'] {
@@ -126,6 +129,7 @@ html[data-theme='dark'] {
   --neutral-border: var(--dark-neutral-border);
   --neutral-hover: var(--dark-neutral-hover);
   --surface-neutral-bg: var(--dark-surface-neutral-bg);
+  --logo-image: url('/data/images/evilv3-logo.png');
 }
 
 * {
@@ -184,7 +188,7 @@ header {
   height: 64px;
   border-radius: 10px;
   background:
-    url('/data/images/neuro-logo.png') center/contain no-repeat,
+    var(--logo-image) center/contain no-repeat,
     linear-gradient(135deg, var(--accent), var(--logo-accent-tint));
   box-shadow: var(--shadow);
 }
@@ -380,3 +384,57 @@ a:focus-visible,
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
+/* new FTP selection grid in progress */
+.expander-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  margin: 16px 0 24px;
+  align-items: start;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .expander-grid { grid-template-columns: 1fr; }
+}
+
+.expander { display: grid; gap: 8px; align-content: start; }
+
+.expander.expanded {
+  grid-column: 1 / -1; /* span full width when open */
+}
+
+.expander-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  padding: 12px 16px;
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+
+.expander-btn .expander-thumb { width: 24px; height: 24px; display: grid; place-items: center; }
+.expander-btn .expander-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 4px; }
+
+.expander-panel { display: block; animation: slideDown 160ms ease-out; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.expander-panel .body { padding: 16px; }
+.expander-panel .title { font-size: 1.05rem; }
+.expander-panel .desc { margin-bottom: 6px; }
+
+.instructions { display: grid; gap: 6px; margin: 8px 0 12px; }
+.instructions .step { color: var(--text); background: transparent; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.expander-btn,
+.expander-panel .thumb { border-color: var(--accent-border); }
+
+.expander-btn:hover { filter: brightness(1.02); }
