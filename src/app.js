@@ -123,17 +123,17 @@ function renderCards(items) {
       {
         id: 'winscp',
         name: 'WinSCP (Preferred)',
-        short: 'Easy setup for Windows. Supports .ini import.',
+        short: 'Easy setup for Windows. Supports direct connection via server URI.',
         downloadUrl: 'https://winscp.net/eng/download.php',
   icon: 'data/images/winscp-logo.png',
         instructions: `
 1) Download and install WinSCP from the official site.
-2) Launch WinSCP and open Tools > Import/Export settings.
-3) To import a .ini config (if available): Options > Preferences > Import/Export > Import from INI file.
-4) Alternatively, in the Login dialog click Import and select the .ini file.
-5) After import, select the Neuro FTP entry and Login.`,
-  importLabel: 'Download WinSCP INI',
-  importHref: null, // TODO
+2) Launch WinSCP.
+3) Click the link below.
+4) Accept the request to open the link when prompted by your browser.
+5) If necessary, login by selecting the Neuro FTP site. There is no password, so just click ok.`,
+  importLabel: 'Connect with winSCP',
+  importHref: 'winscp-ftpes://RandomNeuroStuff:@neuros.click/',
       },
       {
         id: 'filezilla',
