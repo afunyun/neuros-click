@@ -98,7 +98,7 @@ html[data-theme='light'] {
   --neutral-border: var(--light-neutral-border);
   --neutral-hover: var(--light-neutral-hover);
   --surface-neutral-bg: var(--light-surface-neutral-bg);
-  --logo-image: url('/data/images/neurov3-logo.png');
+  --logo-image: url('../data/images/neurov3-logo.png');
 }
 
 html[data-theme='dark'] {
@@ -129,7 +129,7 @@ html[data-theme='dark'] {
   --neutral-border: var(--dark-neutral-border);
   --neutral-hover: var(--dark-neutral-hover);
   --surface-neutral-bg: var(--dark-surface-neutral-bg);
-  --logo-image: url('/data/images/evilv3-logo.png');
+  --logo-image: url('../data/images/evilv3-logo.png');
 }
 
 * {
