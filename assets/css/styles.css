@@ -386,7 +386,7 @@ a:focus-visible,
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
-/* new FTP selection grid in progress */
+
 .expander-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -403,7 +403,7 @@ a:focus-visible,
 .expander { display: grid; gap: 8px; align-content: start; }
 
 .expander.expanded {
-  grid-column: 1 / -1; /* span full width when open */
+  grid-column: 1 / -1;
 }
 
 .expander-btn {
