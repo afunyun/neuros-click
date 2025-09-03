@@ -1,7 +1,3 @@
-/**
- * Theme swapping button.
- */
-
 const STORAGE_KEY = 'theme';
 const THEME_AUTO = 'auto';
 const THEME_LIGHT = 'light';
@@ -37,7 +33,6 @@ export function setTheme(theme) {
 }
 
 /**
- * init theme, bind button for toggle.
  * @param {{ buttonId?: string }} [opts]
  */
 export function initThemeControl(opts = {}) {

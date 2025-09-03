@@ -1,4 +1,4 @@
-import { initThemeControl } from './theme.js';
+import { initThemeControl } from './ui/theme.js';
 import { getSiteConfig, getPages, getFtpClients } from './data.js';
 import { renderCards } from './ui/cards.js';
 import { mountExpanders } from './ui/expander.js';

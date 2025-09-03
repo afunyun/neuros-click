@@ -3,7 +3,6 @@
  */
 
 /**
- * Cards, shown as links in a container.
  * @param {HTMLElement|null} container
  * @param {Page[]} items
  */

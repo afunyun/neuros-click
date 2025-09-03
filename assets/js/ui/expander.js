@@ -18,7 +18,6 @@ function renderInstructions(listEl, instructions) {
 }
 
 /**
- * Mounts expander list into host w/ 1 click handler.
  * @param {HTMLElement|null} host
  * @param {Client[]} clients
  */

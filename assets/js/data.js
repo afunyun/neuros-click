@@ -11,11 +11,10 @@
 const _cache = new Map();
 
 /**
- * fetches json
  * @template T
  * @param {string} url
  * @param {{ cacheMode?: RequestCache, timeoutMs?: number, useMemoryCache?: boolean }} [opts]
- * @returns {Promise<T|null>} resolves to parsed JSON or null on failure
+ * @returns {Promise<T|null>}
  */
 export async function fetchJSON(url, opts = {}) {
   const { cacheMode = 'no-store', timeoutMs = 8000, useMemoryCache = true } = opts;
