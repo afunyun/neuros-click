@@ -3,7 +3,7 @@
   --gap: 16px;
   --maxw: 980px;
   
-  --logo-image: url('/data/images/neurov3-logo.png');
+  --logo-image: url('../data/images/neurov3-logo.png');
 
   --light-bg: #fbe7e8;
   --light-text: #222222;
