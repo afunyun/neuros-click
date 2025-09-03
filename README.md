@@ -4,7 +4,8 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 
 ## TODO
 
-
+- Finish .js reorganization
+    - Separation of concerns for maintainability and also avoid weird pitfalls
 
 ## Most recent changes
 
@@ -32,6 +33,8 @@ folder structure ~~v1~~ ~~v2~~ v3
 |   |-- css/
 |   |   |-- styles.css
 |   |-- js/
+|   |   |-- ui/
+|   |   |   |-- cards.js   
 |   |   |-- app.js
 |   |-- images/
 |   |   |-- neurov3-logo.png
