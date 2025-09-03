@@ -48,4 +48,3 @@ folder structure ~~v1~~ ~~v2~~ v3
 ```
 
 `index.html` (webroot) loads `assets/js/app.js` which loads `assets/json/pages.json` pages meant to use assets in subfolders such as `assets/images/`
-

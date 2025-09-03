@@ -1,5 +1,5 @@
 /**
- * Extracted theme functionality from original app.js.
+ * Theme swapping button.
  */
 
 const STORAGE_KEY = 'theme';
@@ -37,19 +37,17 @@ export function setTheme(theme) {
 }
 
 /**
- * Initialize theme controller and bind toggle button if present.
+ * init theme, bind button for toggle.
  * @param {{ buttonId?: string }} [opts]
  */
 export function initThemeControl(opts = {}) {
   const { buttonId = 'theme-btn' } = opts;
   const btn = document.getElementById(buttonId);
 
-  // initial apply
   const current = getTheme();
   setTheme(current);
   if (btn) btn.textContent = `Theme: ${current}`;
 
-  // button toggle
   if (btn) {
     btn.addEventListener('click', () => {
       const cur = getTheme();

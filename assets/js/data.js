@@ -2,26 +2,16 @@
  * Extracted data functionality from original app.js
  * This is meant to be imported by other .js modules only, it does not stand on its own.
  *
- * Types (JSDoc):
- * @typedef {{ label: string, href: string }} CTA
- * @typedef {{ title?: string, description?: string, cta?: CTA, footer?: string }} Site
- * @typedef {{ name: string, description?: string, image?: string, href?: string }} Page
- * @typedef {{
- *   id: string,
- *   name: string,
- *   icon?: string,
- *   short?: string,
- *   instructions?: string,
- *   downloadUrl: string,
- *   importHref?: string,
- *   importLabel?: string
- * }} Client
+ * @typedef {import('./types.js').CTA} CTA
+ * @typedef {import('./types.js').Site} Site
+ * @typedef {import('./types.js').Page} Page
+ * @typedef {import('./types.js').Client} Client
  */
 
 const _cache = new Map();
 
 /**
- * Fetch JSON with optional timeout and in-memory caching.
+ * fetches json
  * @template T
  * @param {string} url
  * @param {{ cacheMode?: RequestCache, timeoutMs?: number, useMemoryCache?: boolean }} [opts]
@@ -60,7 +50,7 @@ export async function getSiteConfig() {
     cta: { label: 'Open', href: '#' },
     footer: '© bwaa',
   });
-  const data = await fetchJSON('/assets/json/site.json');
+  const data = await fetchJSON('assets/json/site.json');
   return data ?? fallback;
 }
 
@@ -71,7 +61,7 @@ export async function getPages() {
   const fallback = { pages: [
     { name: 'Placeholder', description: 'If you see this it means the pages.json is not loaded', image: '', href: '#' },
   ]};
-  const data = await fetchJSON('/assets/json/pages.json');
+  const data = await fetchJSON('assets/json/pages.json');
   return data ?? fallback;
 }
 
@@ -79,12 +69,9 @@ export async function getPages() {
  * @returns {Promise<{ clients: Client[] }|null>}
  */
 export async function getFtpClients() {
-  return fetchJSON('/assets/json/neuro-ftp-clients.json');
+  return fetchJSON('assets/json/neuro-ftp-clients.json');
 }
 
-/**
- * In-memory clearing.
- */
 export function clearMemoryCache() {
   _cache.clear();
 }

@@ -1,10 +1,9 @@
 /**
- * Cards rendering.
- * @typedef {{ name: string, description?: string, image?: string, href?: string }} Page
+ * @typedef {import('../types.js').Page} Page
  */
 
 /**
- * Render card links in container.
+ * Cards, shown as links in a container.
  * @param {HTMLElement|null} container
  * @param {Page[]} items
  */
