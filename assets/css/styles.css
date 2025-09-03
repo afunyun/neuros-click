@@ -64,7 +64,7 @@
 
 @font-face {
   font-family: 'First Coffee';
-  src: url('../assets/fonts/First Coffee.woff2') format('woff2');
+  src: url('../fonts/First Coffee.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -98,7 +98,7 @@ html[data-theme='light'] {
   --neutral-border: var(--light-neutral-border);
   --neutral-hover: var(--light-neutral-hover);
   --surface-neutral-bg: var(--light-surface-neutral-bg);
-  --logo-image: url('../assets/images/neurov3-logo.png');
+  --logo-image: url('../images/neurov3-logo.png');
 }
 
 html[data-theme='dark'] {
@@ -129,7 +129,7 @@ html[data-theme='dark'] {
   --neutral-border: var(--dark-neutral-border);
   --neutral-hover: var(--dark-neutral-hover);
   --surface-neutral-bg: var(--dark-surface-neutral-bg);
-  --logo-image: url('/assets/images/evilv3-logo.png');
+  --logo-image: url('../images/evilv3-logo.png');
 }
 
 * {
