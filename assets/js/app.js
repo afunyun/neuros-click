@@ -113,49 +113,16 @@ function renderCards(items) {
   const footerText = site.footer ? site.footer.replace('©', `© ${currentYear}`) : `© ${currentYear} bwaa`;
   document.getElementById('foot').textContent = footerText;
 
-  const data = (await loadJSON('assets/json/pages.json')) || {
+  const pageData = (await loadJSON('assets/json/pages.json')) || {
     pages: [
-      { name: 'Example Page', description: 'Add description here', image: '', href: '#' },
-      { name: 'PH', description: 'PH', image: '', href: '#' },
-      { name: 'PH', description: 'PH', image: '', href: '#' },
+      { name: 'Placeholder', description: 'If you see this is means the pages.json is not loaded', image: '', href: '#' },
     ],
   };
-  renderCards(data.pages || []);
+  renderCards(pageData.pages || []);
 
   const expanderHost = document.getElementById('client-expanders');
   if (expanderHost) {
-    const clients = [
-      {
-        id: 'winscp',
-        name: 'WinSCP (Preferred)',
-        short: 'Easy setup for Windows. Supports direct connection via server URI.',
-        downloadUrl: 'https://winscp.net/eng/download.php',
-  icon: 'assets/images/winscp-logo.png',
-        instructions: `
-1) Download and install WinSCP from the official site.
-2) Launch WinSCP.
-3) Click the link below.
-4) Accept the request to open the link when prompted by your browser.
-5) If necessary, login by selecting the Neuro FTP site. There is no password, so just click ok.`,
-  importLabel: 'Connect with winSCP',
-  importHref: 'winscp-ftpes://RandomNeuroStuff:@neuros.click/',
-      },
-      {
-        id: 'filezilla',
-        name: 'FileZilla',
-        short: 'Cross‑platform. Supports .xml Site Manager import.',
-        downloadUrl: 'https://filezilla-project.org/download.php',
-  icon: 'assets/images/filezilla-logo.png',
-        instructions: `
-1) Download and install FileZilla.
-2) Open FileZilla and go to File > Import.
-3) Choose the downloaded .xml configuration file.
-4) Open File > Site Manager, select the imported Neuro FTP entry.
-5) Click Connect to start.`,
-        importLabel: 'Download FileZilla XML',
-        importHref: 'assets/share/neuros-click-filezilla.xml',
-      },
-    ];
+    const clients = (await loadJSON('assets/json/neuro-ftp-clients.json')).clients;
 
     function renderExpanders() {
       expanderHost.innerHTML = '';

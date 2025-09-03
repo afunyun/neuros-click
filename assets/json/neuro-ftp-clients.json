@@ -1,0 +1,24 @@
+{   
+    "clients": [
+      {
+        "id": "winscp",
+        "name": "WinSCP (Preferred)",
+        "short": "Easy setup for Windows. Supports direct connection via server URI.",
+        "downloadUrl": "https://winscp.net/eng/download.php",
+        "icon": "assets/images/winscp-logo.png",
+        "instructions": "1) Download and install WinSCP from the official site.\n2) Launch WinSCP.\n3) Click the link below.\n4) Accept the request to open the link when prompted by your browser.\n5) If necessary, login by selecting the Neuro FTP site. There is no password, so just click ok.",
+        "importLabel": "Connect with winSCP",
+        "importHref": "winscp-ftpes://RandomNeuroStuff:@neuros.click/"
+      },
+      {
+        "id": "filezilla",
+        "name": "FileZilla",
+        "short": "Cross‑platform. Supports .xml Site Manager import.",
+        "downloadUrl": "https://filezilla-project.org/download.php",
+        "icon": "assets/images/filezilla-logo.png",
+        "instructions": "1) Download and install FileZilla.\n2) Open FileZilla and go to File > Import.\n3) Choose the downloaded .xml configuration file.\n4) Open File > Site Manager, select the imported Neuro FTP entry.\n5) Click Connect to start.",
+        "importLabel": "Download FileZilla XML",
+        "importHref": "assets/share/neuros-click-filezilla.xml"
+      }
+    ]
+}
