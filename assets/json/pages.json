@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "name": "FTP",
+      "description": "The Neuro FTP server for random Neuro-sama content. Click for connection info.",
+      "image": "assets/images/folder-closed.png",
+      "href": "/neuro_ftp.html"
+    },
+    {
       "name": "link test",
       "description": "entire card should link to https://neurosama.shop",
       "image": "assets/images/vedal.png",
@@ -24,5 +30,6 @@
       "image": "assets/images/hiyori-test.png",
       "href": "#"
     }
+    
   ]
 }
