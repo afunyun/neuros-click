@@ -45,7 +45,7 @@ async function loadJSON(path) {
 
 function renderCards(items) {
   const grid = document.getElementById('grid');
-  if (!grid) return; // Page doesn't have a grid (e.g., FTP page)
+  if (!grid) return; // added for ftp page since this card function is also used for that right now.
   grid.innerHTML = '';
   for (const item of items) {
     const a = document.createElement('a');
@@ -113,7 +113,7 @@ function renderCards(items) {
   const footerText = site.footer ? site.footer.replace('©', `© ${currentYear}`) : `© ${currentYear} bwaa`;
   document.getElementById('foot').textContent = footerText;
 
-  const data = (await loadJSON('data/pages.json')) || {
+  const data = (await loadJSON('assets/json/pages.json')) || {
     pages: [
       { name: 'Example Page', description: 'Add description here', image: '', href: '#' },
       { name: 'PH', description: 'PH', image: '', href: '#' },
@@ -130,7 +130,7 @@ function renderCards(items) {
         name: 'WinSCP (Preferred)',
         short: 'Easy setup for Windows. Supports direct connection via server URI.',
         downloadUrl: 'https://winscp.net/eng/download.php',
-  icon: 'data/images/winscp-logo.png',
+  icon: 'assets/images/winscp-logo.png',
         instructions: `
 1) Download and install WinSCP from the official site.
 2) Launch WinSCP.
@@ -153,7 +153,7 @@ function renderCards(items) {
 4) Open File > Site Manager, select the imported Neuro FTP entry.
 5) Click Connect to start.`,
         importLabel: 'Download FileZilla XML',
-        importHref: 'data/share/neuros-click-filezilla.xml',
+        importHref: 'assets/share/neuros-click-filezilla.xml',
       },
     ];
 

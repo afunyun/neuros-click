@@ -4,41 +4,45 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 
 ## TODO
 
-- add the swapping eliv/nwero images on the logobox
-- add centralized FTP browsing
+
 
 ## Most recent changes
 
-- Eliv dark theme no longer using poop brown
-- Made grid entries for each site will redirect on 1st click
-- fixed consistency with auto vs manual themes being different
-- updated tests to have images 
+- reorganized structure of folders (again...)
+- add the swapping eliv/nwero images on the logobox
+- add centralized FTP browsing
 
 ## Status
 
 - Static page which loads static JSON data and displays it in a card layout
-- defeated the helper menace 
-- css is comprehensible
+- separate page for FTP connection info with links to connect via winSCP directly or download a FileZilla config
+    - this also made it such that the card system from app.js can be used across multiple pages 
+        - previously it was set up in a way that it always loaded the cards from pages.json etc which isn't ideal. More modular. 
+- structure is more expandable with subfolders for each type of asset to load in a way that makes sense.
+- css is long but pretty much everything is used.
 - overall works as a static site
 
-the folder structure was bad because i didnt plan properly so fixed that to make actual sense:
+folder structure ~~v1~~ ~~v2~~ v3
 
 ```
-neuros-click/
----> index.html
----> data/
-|   ---> pages.json
-|   ---> site.json
-|   ---> images/
-|       ---> vedal.png
-|       ---> hiyori-test.png
-|       ---> <any-site-image.png>
----> src/
-|   ---> styles.css
-|   ---> app.js
-|   ---> fonts/
-|       ---> First Coffee.woff2
+/
+|-- index.html
+|-- neuro_ftp.html
+|-- assets/
+|   |-- css/
+|   |   |-- styles.css
+|   |-- js/
+|   |   |-- app.js
+|   |-- images/
+|   |   |-- neurov3-logo.png
+|   |   |-- evilv3-logo.png
+|   |   |-- etc...
+|   |-- fonts/
+|   |   |-- First Coffee.woff2
+|   |-- json/
+|       |-- pages.json
+|       |-- site.json
 ```
 
-`index.html` loads `src/app.js` which loads `data/pages.json` pages meant to use assets in subfolders such as `data/images/`
+`index.html` (webroot) loads `assets/js/app.js` which loads `assets/json/pages.json` pages meant to use assets in subfolders such as `assets/images/`
 
