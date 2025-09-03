@@ -45,6 +45,7 @@ async function loadJSON(path) {
 
 function renderCards(items) {
   const grid = document.getElementById('grid');
+  if (!grid) return; // Page doesn't have a grid (e.g., FTP page)
   grid.innerHTML = '';
   for (const item of items) {
     const a = document.createElement('a');
@@ -95,8 +96,12 @@ function renderCards(items) {
     cta: { label: 'Open', href: '#' },
     footer: '© bwaa',
   };
-  document.getElementById('page-title').textContent = site.title ?? 'neuros.click';
-  document.getElementById('page-desc').textContent = site.description ?? '';
+  const titleEl = document.getElementById('page-title');
+  if (titleEl) titleEl.textContent = site.title ?? 'neuros.click';
+  const descEl = document.getElementById('page-desc');
+  if (descEl && descEl.textContent.trim().length === 0) {
+    descEl.textContent = site.description ?? '';
+  }
   const cta = document.getElementById('primary-cta');
   if (cta) {
     cta.textContent = 'neurocord';

@@ -343,6 +343,8 @@ footer {
   text-align: center;
 }
 
+.center { text-align: center; }
+
 a,
 a:visited {
   color: var(--link);
