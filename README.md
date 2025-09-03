@@ -2,15 +2,19 @@
 
 site for hosting aggregated list of personally maintained neuro-sama related projects & websites in a simple card layout
 
-## TODO
-
-
 
 ## Most recent changes
 
 - reorganized structure of folders (again...)
-- add the swapping eliv/nwero images on the logobox
-- add centralized FTP browsing
+- add new page for FTP connection info.
+- deleted app.js because it became a monolith (classic)
+    - added multiple new js modules instead
+    - UI folder for stuff that directly affects how page is rendered: ui/cards.js, ui/expander.js, ui/theme.js
+    - entry point is assets/js/index.js; shared helpers in assets/js/data.js and assets/js/types.js
+
+## TODO
+
+- Make sure js still functions with new folders + moving stuff to own modules
 
 ## Status
 
@@ -32,7 +36,13 @@ folder structure ~~v1~~ ~~v2~~ v3
 |   |-- css/
 |   |   |-- styles.css
 |   |-- js/
-|   |   |-- app.js
+|   |   |-- index.js
+|   |   |-- types.js
+|   |   |-- data.js
+|   |   |-- ui/
+|   |   |   |-- cards.js
+|   |   |   |-- expander.js
+|   |   |   |-- theme.js
 |   |-- images/
 |   |   |-- neurov3-logo.png
 |   |   |-- evilv3-logo.png
@@ -44,5 +54,4 @@ folder structure ~~v1~~ ~~v2~~ v3
 |       |-- site.json
 ```
 
-`index.html` (webroot) loads `assets/js/app.js` which loads `assets/json/pages.json` pages meant to use assets in subfolders such as `assets/images/`
-
+`index.html` (webroot) loads `assets/js/index.js` which loads `assets/json/pages.json` and `assets/json/site.json`.
