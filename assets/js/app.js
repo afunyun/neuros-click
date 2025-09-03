@@ -90,7 +90,7 @@ function renderCards(items) {
 }
 
 (async function bootstrap() {
-  const site = (await loadJSON('data/site.json')) || {
+  const site = (await loadJSON('assets/json/site.json')) || {
     title: 'neuros.click',
     description: 'json file thing done maybe',
     cta: { label: 'Open', href: '#' },
@@ -145,7 +145,7 @@ function renderCards(items) {
         name: 'FileZilla',
         short: 'Cross‑platform. Supports .xml Site Manager import.',
         downloadUrl: 'https://filezilla-project.org/download.php',
-  icon: 'data/images/filezilla-logo.png',
+  icon: 'assets/images/filezilla-logo.png',
         instructions: `
 1) Download and install FileZilla.
 2) Open FileZilla and go to File > Import.
