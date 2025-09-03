@@ -14,7 +14,7 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 
 ## TODO
 
-- Make sure js still functions with new structure & being modularized. 
+- Make sure js still functions with new folders + moving stuff to own modules
 
 ## Status
 
@@ -54,4 +54,4 @@ folder structure ~~v1~~ ~~v2~~ v3
 |       |-- site.json
 ```
 
-`index.html` (webroot) loads `assets/js/index.js` (as a type="module") which loads `assets/json/pages.json` and `assets/json/site.json`. Assets live under `assets/images/`.
+`index.html` (webroot) loads `assets/js/index.js` which loads `assets/json/pages.json` and `assets/json/site.json`.
