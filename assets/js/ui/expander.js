@@ -104,7 +104,8 @@ export function mountExpanders(host, clients) {
   });
   host.appendChild(frag);
 
-  if (!host.dataset.expanderDelegated) {
+  const EXPANDER_DELEGATED = 'delegated';
+  if (host.dataset.expanderDelegated !== EXPANDER_DELEGATED) {
     host.addEventListener('click', (e) => {
       const target = e.target;
       if (!(target instanceof Element)) return;
@@ -118,6 +119,6 @@ export function mountExpanders(host, clients) {
       panel.hidden = expanded;
       container.classList.toggle('expanded', !expanded);
     });
-    host.dataset.expanderDelegated = '1';
+    host.dataset.expanderDelegated = EXPANDER_DELEGATED;
   }
 }

@@ -57,7 +57,8 @@ async function bootstrap() {
 
   const expanderHost = document.getElementById('client-expanders');
   if (expanderHost) {
-    const clients = (await getFtpClients())?.clients || [];
+    const ftpData = await getFtpClients();
+    const clients = (ftpData && typeof ftpData === 'object' && Array.isArray(ftpData.clients)) ? ftpData.clients : [];
     mountExpanders(expanderHost, clients);
   }
 }

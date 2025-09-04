@@ -32,7 +32,7 @@ export async function fetchJSON(url, opts = {}) {
     if (useMemoryCache) _cache.set(url, data);
     return data;
   } catch (err) {
-    console.warn(`Could not load ${url}:`, err);
+    console.warn(`Could not load JSON from ${url}. Please ensure the file exists as valid json.`, err);
     return null;
   } finally {
     clearTimeout(to);
