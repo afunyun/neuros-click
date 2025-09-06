@@ -3,33 +3,32 @@
     {
       "name": "FTP",
       "description": "The Neuro FTP server for random Neuro-sama content. Click for connection info.",
-      "image": "assets/images/folder-closed.png",
-      "href": "/neuro_ftp.html"
+      "image": "/assets/images/folder-closed.png",
+      "href": "/neuro_ftp/index.html"
     },
     {
       "name": "link test",
       "description": "entire card should link to https://neurosama.shop",
-      "image": "assets/images/vedal.png",
+      "image": "/assets/images/vedal.png",
       "href": "https://neurosama.shop"
     },
     {
       "name": "test transparent site image",
       "description": "assets/images/neuro-logo.png - transparent bg",
-      "image": "assets/images/neuro-logo.png",
+      "image": "/assets/images/neuro-logo.png",
       "href": "#"
     },
     {
       "name": "signature look of superiority",
       "description": "assets/images/signature-look.png - pink bg",
-      "image": "assets/images/signature-look.png",
+      "image": "/assets/images/signature-look.png",
       "href": "#"
     },
     {
       "name": "image in /assets/images/",
       "description": "assets/images/hiyori-test.png - non transparent bg",
-      "image": "assets/images/hiyori-test.png",
+      "image": "/assets/images/hiyori-test.png",
       "href": "#"
     }
-    
   ]
 }

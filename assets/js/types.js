@@ -31,9 +31,9 @@
  * @property {string=} icon
  * @property {string=} short
  * @property {string=} instructions
- * @property {string} downloadUrl
+ * @property {string|null} downloadUrl
  * @property {string=} importHref
  * @property {string=} importLabel
  */
 
-export {};
+export { };

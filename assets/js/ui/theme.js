@@ -23,39 +23,59 @@ export function getTheme() {
  * @param {'auto'|'light'|'dark'} theme
  */
 export function setTheme(theme) {
-  const html = document.documentElement;
-  if (theme === THEME_AUTO) {
-    html.setAttribute('data-theme', getSystemTheme());
-  } else {
-    html.setAttribute('data-theme', theme);
+  try {
+    const html = document.documentElement;
+    if (theme === THEME_AUTO) {
+      html.setAttribute('data-theme', getSystemTheme());
+    } else {
+      html.setAttribute('data-theme', theme);
+    }
+    localStorage.setItem(STORAGE_KEY, theme);
+  } catch (error) {
+    console.error('Failed to set theme:', error);
+    throw error;
   }
-  localStorage.setItem(STORAGE_KEY, theme);
 }
+
+import { getElementById, setTextIf } from '../utils/dom.js';
 
 /**
  * @param {{ buttonId?: string }} [opts]
  */
 export function initThemeControl(opts = {}) {
-  const { buttonId = 'theme-btn' } = opts;
-  const btn = document.getElementById(buttonId);
+  try {
+    const { buttonId = 'theme-btn' } = opts;
+    const btn = getElementById(buttonId);
 
-  const current = getTheme();
-  setTheme(current);
-  if (btn) btn.textContent = `Theme: ${current}`;
+    const current = getTheme();
+    setTheme(current);
+    setTextIf(btn, `Theme: ${current}`);
 
-  if (btn) {
-    btn.addEventListener('click', () => {
-      const cur = getTheme();
-      const next = cur === THEME_DARK ? THEME_LIGHT : cur === THEME_LIGHT ? THEME_AUTO : THEME_DARK;
-      setTheme(next);
-      btn.textContent = `Theme: ${next}`;
-    });
-  }
-
-  const mq = window.matchMedia('(prefers-color-scheme: dark)');
-  mq.addEventListener('change', (e) => {
-    if (getTheme() === THEME_AUTO) {
-      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        try {
+          const cur = getTheme();
+          const next = cur === THEME_DARK ? THEME_LIGHT : cur === THEME_LIGHT ? THEME_AUTO : THEME_DARK;
+          setTheme(next);
+          setTextIf(btn, `Theme: ${next}`);
+        } catch (error) {
+          console.error('Failed to change theme:', error);
+        }
+      });
     }
-  });
+
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', (e) => {
+      try {
+        if (getTheme() === THEME_AUTO) {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      } catch (error) {
+        console.error('Failed to handle system theme change:', error);
+      }
+    });
+  } catch (error) {
+    console.error('Failed to initialize theme control:', error);
+    throw error;
+  }
 }

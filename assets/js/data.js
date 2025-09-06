@@ -1,7 +1,5 @@
 /**
- * Extracted data functionality from original app.js
- * This is meant to be imported by other .js modules only, it does not stand on its own.
- *
+ * @file data.js
  * @typedef {import('./types.js').CTA} CTA
  * @typedef {import('./types.js').Site} Site
  * @typedef {import('./types.js').Page} Page
@@ -45,11 +43,10 @@ export async function fetchJSON(url, opts = {}) {
 export async function getSiteConfig() {
   const fallback = /** @type {Site} */ ({
     title: 'neuros.click',
-    description: 'json file thing done maybe',
+    description: 'A collection of sites created or maintained by Superbox for the Neuro-sama Community',
     cta: { label: 'Open', href: '#' },
-    footer: '© bwaa',
   });
-  const data = await fetchJSON('assets/json/site.json');
+  const data = await fetchJSON('/assets/json/site.json');
   return data ?? fallback;
 }
 
@@ -57,10 +54,12 @@ export async function getSiteConfig() {
  * @returns {Promise<{ pages: Page[] }>}
  */
 export async function getPages() {
-  const fallback = { pages: [
-    { name: 'Placeholder', description: 'If you see this it means the pages.json is not loaded', image: '', href: '#' },
-  ]};
-  const data = await fetchJSON('assets/json/pages.json');
+  const fallback = {
+    pages: [
+      { name: 'Placeholder', description: 'If you see this it means the pages.json is not loaded', image: '', href: '#' },
+    ]
+  };
+  const data = await fetchJSON('/assets/json/pages.json');
   return data ?? fallback;
 }
 
@@ -68,7 +67,7 @@ export async function getPages() {
  * @returns {Promise<{ clients: Client[] }|null>}
  */
 export async function getFtpClients() {
-  return fetchJSON('assets/json/neuro-ftp-clients.json');
+  return fetchJSON('/assets/json/neuro-ftp-clients.json');
 }
 
 export function clearMemoryCache() {
