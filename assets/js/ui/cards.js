@@ -35,6 +35,20 @@ export function renderCards(container, items) {
         img.alt = '';
         img.decoding = 'async';
         img.loading = 'lazy';
+        
+        if (item.hoverImage) {
+          const originalSrc = item.image;
+          const hoverSrc = item.hoverImage;
+          
+          a.addEventListener('mouseenter', () => {
+            img.src = hoverSrc;
+          });
+          
+          a.addEventListener('mouseleave', () => {
+            img.src = originalSrc;
+          });
+        }
+        
         thumb.appendChild(img);
       } else {
         const span = document.createElement('span');

@@ -4,6 +4,7 @@
       "name": "FTP",
       "description": "The Neuro FTP server for random Neuro-sama content. Click for connection info.",
       "image": "/assets/images/folder-closed.png",
+      "hoverImage": "/assets/images/folder-open.png",
       "href": "/neuro_ftp/index.html"
     },
     {

@@ -21,6 +21,7 @@
  * @property {string} name
  * @property {string=} description
  * @property {string=} image
+ * @property {string=} hoverImage
  * @property {string=} href
  */
 
