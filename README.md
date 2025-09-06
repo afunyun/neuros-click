@@ -23,10 +23,6 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 - Static page which loads static JSON data and displays it in a card layout
 - Separate page for FTP connection help
 - js/css/html constructing the pages without need for much if any external libraries or backend
-  - UI components for cards, theme, footer, expansion behavior
-  - Service layer for app control and site configuration
-  - Utility functions for DOM manipulation
-  - Shared data loading and type definitions
 - mobile layout mostly works but needs polish
 - moar expandable now with refactor
 
