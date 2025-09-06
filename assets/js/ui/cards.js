@@ -65,7 +65,6 @@ export function renderCards(container, items) {
     container.appendChild(frag);
   } catch (error) {
     console.error('Failed to render cards:', error);
-    // Show fallback content
     container.innerHTML = '<div class="card"><div class="body"><div class="title">Error loading content</div><div class="desc">Please refresh the page to try again.</div></div></div>';
     throw error;
   }

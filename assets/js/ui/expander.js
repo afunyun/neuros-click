@@ -70,7 +70,6 @@ export function mountExpanders(host, clients) {
       const cardActions = document.createElement('div');
       cardActions.className = 'actions';
 
-      // Only render download button if downloadUrl is available
       if (client.downloadUrl) {
         const downloadButton = document.createElement('a');
         downloadButton.className = 'btn primary';
@@ -82,7 +81,6 @@ export function mountExpanders(host, clients) {
         cardActions.appendChild(downloadButton);
       }
 
-      // Only render connect button if importHref is available
       if (client.importHref) {
         const connectButton = document.createElement('a');
         connectButton.className = 'btn neutral';
@@ -129,7 +127,6 @@ export function mountExpanders(host, clients) {
       const panelActions = document.createElement('div');
       panelActions.className = 'actions';
 
-      // Only render download button in panel if downloadUrl is available
       if (client.downloadUrl) {
         const panelDownloadBtn = document.createElement('a');
         panelDownloadBtn.className = 'btn primary';
@@ -148,15 +145,12 @@ export function mountExpanders(host, clients) {
         panelImportBtn.textContent = client.importLabel || 'Import';
         panelActions.appendChild(panelImportBtn);
       } else if (!client.downloadUrl) {
-        // Only show hint if neither download nor import is available
         const importNote = document.createElement('div');
         importNote.className = 'hint';
-        importNote.textContent = 'Setup available through manual configuration only.';
+        importNote.textContent = 'No download or import available';
         panelActions.appendChild(importNote);
       }
 
-      panelBodyContainer.appendChild(panelTitle);
-      panelBodyContainer.appendChild(panelDesc);
       panelBodyContainer.appendChild(instructionsList);
       panelBodyContainer.appendChild(panelActions);
       expandedPanel.appendChild(panelBodyContainer);

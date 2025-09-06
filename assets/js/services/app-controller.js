@@ -1,5 +1,5 @@
 /**
- * Application controller - this again reduces the bloat in index.js - bootstrap function was enormous
+ * Basically the loader. reduces the bloat in index.js 
  */
 
 import { initThemeControl } from '../ui/theme.js';
@@ -60,7 +60,7 @@ async function initializeFtpExpanders() {
     mountExpanders(expanderHost, clients);
   } catch (error) {
     console.warn('Failed to initialize FTP expanders:', error);
-    throw new Error('FTP expanders initialization failed');
+    throw new Error('FTP expanders are not available');
   }
 }
 
@@ -95,7 +95,7 @@ export async function initializeApplication() {
   }
 
   if (errors.length > 0) {
-    const errorMessage = `Application initialization failed with ${errors.length} error(s)`;
+    const errorMessage = `Someone tell Superbox there's a ${errors.length} with his  ̶A̶I̶ site`;
     console.error(errorMessage, errors);
     throw new Error(errorMessage);
   }

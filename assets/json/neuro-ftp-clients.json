@@ -26,7 +26,7 @@
       "short": "Various other FTP clients.",
       "downloadUrl": null,
       "icon": "/assets/images/neuro-wot.png",
-      "instructions": "1) Download and install your preferred FTP client.\n2) Configure it to connect to the Neuro FTP server using the provided credentials.\n**Server:** neuros.click\n**Port:** 21\n**Protocol:** FTP over explicit TLS\n**Username:** RandomNeuroStuff\n**Password:** (leave blank)\n\n3) Save the configuration and connect to the server.",
+      "instructions": "1) Configuration for an existing FTP client:\n-- Server:-- neuros.click\n-- Port: 21\n-- Protocol: FTP over explicit TLS\n-- Username: RandomNeuroStuff\n-- Password: (leave blank)\n\n2) Save the configuration and connect to the server.",
       "importLabel": "Connect with Other Clients",
       "importHref": null
     }

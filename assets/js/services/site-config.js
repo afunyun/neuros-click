@@ -39,7 +39,7 @@ export function applySiteCta(siteConfig, ctaId = 'primary-cta') {
     ctaEl.href = siteConfig.cta.href;
     setHidden(ctaEl, false);
   } else {
-    ctaEl.textContent = 'neurocord';
+    ctaEl.textContent = 'Neuro Discord';
     ctaEl.href = 'https://discord.com/invite/neurosama';
     setHidden(ctaEl, false);
   }

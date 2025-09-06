@@ -1,5 +1,5 @@
 /**
- * the script for all dom manipulations to live.
+ * script for all dom manipulations to live in one place.
  */
 
 /**
