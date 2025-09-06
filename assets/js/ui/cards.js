@@ -35,6 +35,17 @@ export function renderCards(container, items) {
         img.alt = '';
         img.decoding = 'async';
         img.loading = 'lazy';
+        img.width = 120;
+        img.height = 120;
+        
+        img.addEventListener('load', () => {
+          img.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', () => {
+          img.style.opacity = '0.5';
+          img.alt = 'Image failed to load';
+        });
         
         if (item.hoverImage) {
           const originalSrc = item.image;

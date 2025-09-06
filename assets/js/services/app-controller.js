@@ -36,11 +36,17 @@ async function initializePageCards() {
   if (!gridContainer) {
     return;
   }
+  
+  gridContainer.innerHTML = '<div class="loading-spinner" style="margin: 20px auto;"></div>';
+  gridContainer.classList.add('loading');
 
   try {
     const pageData = await getPages();
+    gridContainer.classList.remove('loading');
     renderCards(gridContainer, pageData.pages || []);
   } catch (error) {
+    gridContainer.classList.remove('loading');
+    gridContainer.innerHTML = '<div class="error-state">Failed to load content. Please refresh the page to try again.</div>';
     console.warn('Failed to initialize page cards:', error);
     throw new Error('Page cards initialization failed');
   }

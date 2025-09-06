@@ -396,9 +396,7 @@ footer {
   opacity: 0.7;
 }
 
-.center {
-  text-align: center;
-}
+
 
 a,
 a:visited {
@@ -541,6 +539,39 @@ a:focus-visible,
     font-size: 0.65rem;
     right: 12px;
     bottom: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .toolbar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn {
+    width: 100%;
   }
 }
 
@@ -707,4 +738,45 @@ a:focus-visible,
   border-top-right-radius: 0;
   border-top: none;
   margin-top: -1px;
+}
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  border-top-color: var(--accent);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-state {
+  color: var(--danger);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  background: rgba(199, 46, 73, 0.1);
+}
+
+.card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.card .thumb img[loading] {
+  opacity: 0.7;
 }
