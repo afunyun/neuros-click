@@ -1,10 +1,2 @@
-.github/docs/*
-helper/__pycache__
-.venv
-dist
-helper/*
-uv.lock
-pyproject.toml
-.python-version
-assets/images-archive/
+assets/images-archive/*
 devel/*
