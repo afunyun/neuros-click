@@ -1,5 +1,5 @@
 /**
- * Basically the loader. reduces the bloat in index.js 
+ * Basically the loader. replacement for app.js & index.js init portion
  */
 
 import { initThemeControl } from '../ui/theme.js';
