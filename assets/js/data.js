@@ -46,7 +46,7 @@ export async function getSiteConfig() {
     description: 'A collection of sites created or maintained by Superbox for the Neuro-sama Community',
     cta: { label: 'Open', href: '#' },
   });
-  const data = await fetchJSON('/assets/json/site.json');
+  const data = await fetchJSON('./assets/json/site.json');
   return data ?? fallback;
 }
 
@@ -59,7 +59,7 @@ export async function getPages() {
       { name: 'Placeholder', description: 'If you see this it means the pages.json is not loaded', image: '', href: '#' },
     ]
   };
-  const data = await fetchJSON('/assets/json/pages.json');
+  const data = await fetchJSON('./assets/json/pages.json');
   return data ?? fallback;
 }
 
@@ -67,7 +67,7 @@ export async function getPages() {
  * @returns {Promise<{ clients: Client[] }|null>}
  */
 export async function getFtpClients() {
-  return fetchJSON('/assets/json/neuro-ftp-clients.json');
+  return fetchJSON('./assets/json/neuro-ftp-clients.json');
 }
 
 export function clearMemoryCache() {

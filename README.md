@@ -2,11 +2,10 @@
 
 site for hosting aggregated list of personally maintained neuro-sama related projects & websites in a simple card layout
 
-
 ## Most recent changes
 
 - reorganized structure of folders (again...)... again
-- refactored the js into modules because it was getting monolithic 
+- refactored the js into modules because it was getting monolithic
 - updated the layout to work better for very narrow//mobile screens (reactive layout)
 - normalized size of the images for consistency especially in the way the site scales width-wise
 - fixed the broken links from reorganizing - all internal linking is now explicit to the structure of the folder layout
@@ -15,8 +14,8 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 ## TODO
 
 - dedup css again, there are certainly some unused classes in there now
-- fix the layout of the very top of the page for VERY narrow screens as the buttons and site title/logo are competing for the space 
-    - will be moving having the buttons have a similar moving behavior to the descriptions on the cards when the layout is too narrow - they will either move under the title text or stack on each other vertically to make horizontal room. 
+- fix the layout of the very top of the page for VERY narrow screens as the buttons and site title/logo are competing for the space
+  - will be moving having the buttons have a similar moving behavior to the descriptions on the cards when the layout is too narrow - they will either move under the title text or stack on each other vertically to make horizontal room.
 
 ## Status
 

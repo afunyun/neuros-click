@@ -1,7 +1,7 @@
 /**
  * currently very simple obviously but if we want to add more to the footer at some point this is it.
  * prevents bootstrap from handling it since it was 80 entire lines of bloat.
- * 
+ *
  * @typedef {import('../types.js').Site} Site
  */
 

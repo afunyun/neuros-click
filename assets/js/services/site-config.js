@@ -1,6 +1,6 @@
 /**
  * Init site config & apply to DOM without enormous monolith
- * 
+ *
  * @typedef {import('../types.js').Site} Site
  */
 

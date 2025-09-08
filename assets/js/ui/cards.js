@@ -37,29 +37,29 @@ export function renderCards(container, items) {
         img.loading = 'lazy';
         img.width = 120;
         img.height = 120;
-        
+
         img.addEventListener('load', () => {
           img.style.opacity = '1';
         });
-        
+
         img.addEventListener('error', () => {
           img.style.opacity = '0.5';
           img.alt = 'Image failed to load';
         });
-        
+
         if (item.hoverImage) {
           const originalSrc = item.image;
           const hoverSrc = item.hoverImage;
-          
+
           a.addEventListener('mouseenter', () => {
             img.src = hoverSrc;
           });
-          
+
           a.addEventListener('mouseleave', () => {
             img.src = originalSrc;
           });
         }
-        
+
         thumb.appendChild(img);
       } else {
         const span = document.createElement('span');

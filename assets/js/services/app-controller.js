@@ -36,7 +36,7 @@ async function initializePageCards() {
   if (!gridContainer) {
     return;
   }
-  
+
   gridContainer.innerHTML = '<div class="loading-spinner" style="margin: 20px auto;"></div>';
   gridContainer.classList.add('loading');
 
