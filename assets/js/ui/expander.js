@@ -2,6 +2,8 @@
  * @typedef {import('../types.js').Client} Client
  */
 
+import { resolveAssetPath } from '../data.js';
+
 function renderInstructions(listEl, instructions) {
   listEl.innerHTML = '';
   const frag = document.createDocumentFragment();
@@ -50,7 +52,7 @@ export function mountExpanders(host, clients) {
       const logoThumb = document.createElement('div');
       logoThumb.className = 'thumb';
       const logoImg = document.createElement('img');
-      logoImg.src = client.icon || '';
+      logoImg.src = resolveAssetPath(client.icon || '');
       logoImg.alt = '';
       logoImg.loading = 'lazy';
       logoImg.decoding = 'async';
@@ -84,7 +86,7 @@ export function mountExpanders(host, clients) {
       if (client.importHref) {
         const connectButton = document.createElement('a');
         connectButton.className = 'btn neutral';
-        connectButton.href = client.importHref;
+        connectButton.href = resolveAssetPath(client.importHref);
         if (!client.importHref.startsWith('http')) {
           connectButton.download = '';
         }
@@ -140,7 +142,7 @@ export function mountExpanders(host, clients) {
       if (client.importHref) {
         const panelImportBtn = document.createElement('a');
         panelImportBtn.className = 'btn neutral';
-        panelImportBtn.href = client.importHref;
+        panelImportBtn.href = resolveAssetPath(client.importHref);
         panelImportBtn.download = '';
         panelImportBtn.textContent = client.importLabel || 'Import';
         panelActions.appendChild(panelImportBtn);

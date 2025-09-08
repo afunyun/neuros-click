@@ -2,6 +2,8 @@
  * @typedef {import('../types.js').Page} Page
  */
 
+import { resolveAssetPath } from '../data.js';
+
 /**
  * @param {HTMLElement|null} container
  * @param {Page[]} items
@@ -31,7 +33,7 @@ export function renderCards(container, items) {
       thumb.className = 'thumb';
       if (item.image) {
         const img = document.createElement('img');
-        img.src = item.image;
+        img.src = resolveAssetPath(item.image);
         img.alt = '';
         img.decoding = 'async';
         img.loading = 'lazy';
@@ -48,8 +50,8 @@ export function renderCards(container, items) {
         });
 
         if (item.hoverImage) {
-          const originalSrc = item.image;
-          const hoverSrc = item.hoverImage;
+          const originalSrc = resolveAssetPath(item.image);
+          const hoverSrc = resolveAssetPath(item.hoverImage);
 
           a.addEventListener('mouseenter', () => {
             img.src = hoverSrc;

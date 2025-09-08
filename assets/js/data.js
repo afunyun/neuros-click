@@ -9,6 +9,39 @@
 const _cache = new Map();
 
 /**
+ * Get the base path for asset resolution
+ * @returns {string}
+ */
+export function getBasePath() {
+  const pathname = window.location.pathname;
+  const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
+
+  if (segments.length <= 1) {
+    return './';
+  }
+
+  const depth = segments.length - 1;
+  return '../'.repeat(depth);
+}
+
+/**
+ * Uses base path to resolve relative asset paths
+ * @param {string} path
+ * @returns {string}
+ */
+export function resolveAssetPath(path) {
+  if (!path || typeof path !== 'string') return path;
+
+  if (path.startsWith('http') || path.startsWith('//')) return path;
+
+  if (path.startsWith('./')) {
+    return path.replace('./', getBasePath());
+  }
+
+  return path;
+}
+
+/**
  * @template T
  * @param {string} url
  * @param {{ cacheMode?: RequestCache, timeoutMs?: number, useMemoryCache?: boolean }} [opts]
@@ -46,7 +79,8 @@ export async function getSiteConfig() {
     description: 'A collection of sites created or maintained by Superbox for the Neuro-sama Community',
     cta: { label: 'Open', href: '#' },
   });
-  const data = await fetchJSON('./assets/json/site.json');
+  const basePath = getBasePath();
+  const data = await fetchJSON(`${basePath}assets/json/site.json`);
   return data ?? fallback;
 }
 
@@ -59,7 +93,8 @@ export async function getPages() {
       { name: 'Placeholder', description: 'If you see this it means the pages.json is not loaded', image: '', href: '#' },
     ]
   };
-  const data = await fetchJSON('./assets/json/pages.json');
+  const basePath = getBasePath();
+  const data = await fetchJSON(`${basePath}assets/json/pages.json`);
   return data ?? fallback;
 }
 
@@ -67,7 +102,8 @@ export async function getPages() {
  * @returns {Promise<{ clients: Client[] }|null>}
  */
 export async function getFtpClients() {
-  return fetchJSON('./assets/json/neuro-ftp-clients.json');
+  const basePath = getBasePath();
+  return fetchJSON(`${basePath}assets/json/neuro-ftp-clients.json`);
 }
 
 export function clearMemoryCache() {
