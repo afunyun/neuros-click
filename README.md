@@ -4,18 +4,13 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 
 ## Most recent changes
 
-- reorganized structure of folders (again...)... again
-- refactored the js into modules because it was getting monolithic
-- updated the layout to work better for very narrow//mobile screens (reactive layout)
-- normalized size of the images for consistency especially in the way the site scales width-wise
-- fixed the broken links from reorganizing - all internal linking is now explicit to the structure of the folder layout
-- added config for non-specific ftp client connections along with the previously added configs.
+- final (hopefully) change to relative links for the neuro_ftp page so it works both on local dev and github pages deployment
+  - Uses a function to calculate the base path based on current URL depth and prepends that to all asset paths
 
 ## TODO
 
-- dedup css again, there are certainly some unused classes in there now
-- fix the layout of the very top of the page for VERY narrow screens as the buttons and site title/logo are competing for the space
-  - will be moving having the buttons have a similar moving behavior to the descriptions on the cards when the layout is too narrow - they will either move under the title text or stack on each other vertically to make horizontal room.
+- add actual page links when they're given to me
+- random changes per superbox mainly
 
 ## Status
 
@@ -27,7 +22,7 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 
 folder structure ~~v1~~ ~~v2~~ ~~v3~~ v4 (surely the last)
 
-```
+```md
 /
 |-- index.html
 |-- neuro_ftp/
