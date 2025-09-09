@@ -78,6 +78,13 @@
         console.log('Calculated basePath:', basePath);
         console.log('JS path will be:', basePath + 'assets/js/index.js');
 
+        // favicon because again GH pages is stupid. can be removed on real domain.
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/png';
+        favicon.href = basePath + 'favicon.ico';
+        document.head.appendChild(favicon);
+
         const fontPreload = document.createElement('link');
         fontPreload.rel = 'preload';
         fontPreload.href = basePath + 'assets/fonts/First Coffee.woff2';
