@@ -47,7 +47,7 @@
         </footer>
     </div>
     <script type="module">
-        /* These can be included up in the head if the path is known and fixed, but for this page it needs to be dynamic while on GH Pages because microsoft hates me:
+        /* These can be included up in the head if the path is known and fixed, but for this page it needs to be dynamic while on GH Pages because microsoft hates me. Literally this entire module is not needed if not on GH pages deployment.
 
         <link rel="stylesheet" href="../assets/css/styles.css" />
         <link rel="preload" href="../assets/fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin>
@@ -78,7 +78,6 @@
         console.log('Calculated basePath:', basePath);
         console.log('JS path will be:', basePath + 'assets/js/index.js');
 
-        // favicon because again GH pages is stupid. can be removed on real domain.
         const favicon = document.createElement('link');
         favicon.rel = 'icon';
         favicon.type = 'image/png';
