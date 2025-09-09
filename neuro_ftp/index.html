@@ -58,6 +58,13 @@
             const pathname = window.location.pathname;
             const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
 
+            // i hate github pages
+            if (window.location.hostname.includes('github.io')) {
+                if (segments[0] === 'neuros-click') {
+                    return '/neuros-click/';
+                }
+            }
+
             if (segments.length <= 1) {
                 return './';
             }
@@ -67,6 +74,9 @@
         }
 
         const basePath = getBasePath();
+        console.log('Current pathname:', window.location.pathname);
+        console.log('Calculated basePath:', basePath);
+        console.log('JS path will be:', basePath + 'assets/js/index.js');
 
         const fontPreload = document.createElement('link');
         fontPreload.rel = 'preload';
@@ -84,6 +94,14 @@
         const script = document.createElement('script');
         script.type = 'module';
         script.src = basePath + 'assets/js/index.js';
+        script.onerror = function (e) {
+            console.error('Failed to load script:', e);
+            console.error('Attempted path:', script.src);
+            const fallbackScript = document.createElement('script');
+            fallbackScript.type = 'module';
+            fallbackScript.src = '/neuros-click/assets/js/index.js';
+            document.head.appendChild(fallbackScript);
+        };
         document.head.appendChild(script);
     </script>
 </body>
