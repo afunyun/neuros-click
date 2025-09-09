@@ -6,6 +6,7 @@ site for hosting aggregated list of personally maintained neuro-sama related pro
 
 - final (hopefully) change to relative links for the neuro_ftp page so it works both on local dev and github pages deployment
   - Uses a function to calculate the base path based on current URL depth and prepends that to all asset paths
+  - to be super sure added a module script on the ftp index to resolve paths on load even if it somehow fails to load the js file that has the main path resolution function
 
 ## TODO
 

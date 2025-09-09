@@ -5,10 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>neuros.click - FTP Setup</title>
-    <link rel="stylesheet" href="../assets/css/styles.css" />
-    <link rel="preload" href="../assets/fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../assets/json/site.json" as="fetch" crossorigin>
-    <link rel="preload" href="../assets/json/neuro-ftp-clients.json" as="fetch" crossorigin>
 </head>
 
 <body>
@@ -50,7 +46,42 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="../assets/js/index.js"></script>
+    <script type="module">
+        /* These can be included up in the head if the path is known and fixed, but for this page it needs to be dynamic while on GH Pages because microsoft hates me:
+
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+        <link rel="preload" href="../assets/fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="../assets/json/site.json" as="fetch" crossorigin>
+        <link rel="preload" href="../assets/json/neuro-ftp-clients.json" as="fetch" crossorigin>
+        */
+        function getBasePath() {
+            const pathname = window.location.pathname;
+            const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
+
+            if (segments.length <= 1) {
+                return './';
+            }
+
+            const depth = segments.length - 1;
+            return '../'.repeat(depth);
+        }
+
+        const basePath = getBasePath();
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = basePath + 'assets/css/styles.css';
+        document.head.appendChild(link);
+
+        const fontPreload = document.createElement('link');
+        fontPreload.rel = 'preload';
+        fontPreload.href = basePath + 'assets/fonts/First Coffee.woff2';
+        fontPreload.as = 'font';
+        fontPreload.type = 'font/woff2';
+        fontPreload.crossOrigin = 'anonymous';
+        document.head.appendChild(fontPreload);
+
+        import(basePath + 'assets/js/index.js');
+    </script>
 </body>
 
 </html>
