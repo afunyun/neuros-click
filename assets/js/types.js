@@ -37,4 +37,4 @@
  * @property {string=} importLabel
  */
 
-export { };
+export {};

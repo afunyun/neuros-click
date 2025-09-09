@@ -2,20 +2,20 @@
  * Basically the loader. replacement for app.js & index.js init portion
  */
 
-import { initThemeControl } from '../ui/theme.js';
-import { getSiteConfig, getPages, getFtpClients } from '../data.js';
-import { applySiteConfiguration } from './site-config.js';
-import { initFooter } from '../ui/footer.js';
-import { renderCards } from '../ui/cards.js';
-import { mountExpanders } from '../ui/expander.js';
-import { getElementById } from '../utils/dom.js';
+import { getFtpClients, getPages, getSiteConfig } from "../data.js";
+import { renderCards } from "../ui/cards.js";
+import { mountExpanders } from "../ui/expander.js";
+import { initFooter } from "../ui/footer.js";
+import { initThemeControl } from "../ui/theme.js";
+import { getElementById } from "../utils/dom.js";
+import { applySiteConfiguration } from "./site-config.js";
 
 async function initializeTheme() {
   try {
     initThemeControl();
   } catch (error) {
-    console.warn('Failed to initialize theme control:', error);
-    throw new Error('Theme initialization failed');
+    console.warn("Failed to initialize theme control:", error);
+    throw new Error("Theme initialization failed");
   }
 }
 
@@ -26,47 +26,50 @@ async function initializeSiteConfig() {
     initFooter(siteConfig);
     return siteConfig;
   } catch (error) {
-    console.warn('Failed to initialize site configuration:', error);
-    throw new Error('Site configuration initialization failed');
+    console.warn("Failed to initialize site configuration:", error);
+    throw new Error("Site configuration initialization failed");
   }
 }
 
 async function initializePageCards() {
-  const gridContainer = getElementById('grid');
+  const gridContainer = getElementById("grid");
   if (!gridContainer) {
     return;
   }
 
-  gridContainer.innerHTML = '<div class="loading-spinner" style="margin: 20px auto;"></div>';
-  gridContainer.classList.add('loading');
+  gridContainer.innerHTML =
+    '<div class="loading-spinner" style="margin: 20px auto;"></div>';
+  gridContainer.classList.add("loading");
 
   try {
     const pageData = await getPages();
-    gridContainer.classList.remove('loading');
+    gridContainer.classList.remove("loading");
     renderCards(gridContainer, pageData.pages || []);
   } catch (error) {
-    gridContainer.classList.remove('loading');
-    gridContainer.innerHTML = '<div class="error-state">Failed to load content. Please refresh the page to try again.</div>';
-    console.warn('Failed to initialize page cards:', error);
-    throw new Error('Page cards initialization failed');
+    gridContainer.classList.remove("loading");
+    gridContainer.innerHTML =
+      '<div class="error-state">Failed to load content. Please refresh the page to try again.</div>';
+    console.warn("Failed to initialize page cards:", error);
+    throw new Error("Page cards initialization failed");
   }
 }
 
 async function initializeFtpExpanders() {
-  const expanderHost = getElementById('client-expanders');
+  const expanderHost = getElementById("client-expanders");
   if (!expanderHost) {
     return;
   }
 
   try {
     const ftpData = await getFtpClients();
-    const clients = (ftpData && typeof ftpData === 'object' && Array.isArray(ftpData.clients))
-      ? ftpData.clients
-      : [];
+    const clients =
+      ftpData && typeof ftpData === "object" && Array.isArray(ftpData.clients)
+        ? ftpData.clients
+        : [];
     mountExpanders(expanderHost, clients);
   } catch (error) {
-    console.warn('Failed to initialize FTP expanders:', error);
-    throw new Error('FTP expanders are not available');
+    console.warn("Failed to initialize FTP expanders:", error);
+    throw new Error("FTP expanders are not available");
   }
 }
 
@@ -91,13 +94,13 @@ export async function initializeApplication() {
   try {
     await initializePageCards();
   } catch (error) {
-    console.warn('Non-critical error:', error);
+    console.warn("Non-critical error:", error);
   }
 
   try {
     await initializeFtpExpanders();
   } catch (error) {
-    console.warn('Non-critical error:', error);
+    console.warn("Non-critical error:", error);
   }
 
   if (errors.length > 0) {

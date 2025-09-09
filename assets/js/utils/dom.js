@@ -7,8 +7,8 @@
  * @param {string} text
  */
 export function setTextIf(el, text) {
-  if (!el) return;
-  el.textContent = text;
+	if (!el) return;
+	el.textContent = text;
 }
 
 /**
@@ -17,7 +17,7 @@ export function setTextIf(el, text) {
  * @returns {T|null}
  */
 export function getElementById(id) {
-  return /** @type {T|null} */ (document.getElementById(id));
+	return /** @type {T|null} */ (document.getElementById(id));
 }
 
 /**
@@ -25,10 +25,10 @@ export function getElementById(id) {
  * @param {Record<string, string>} attrs
  */
 export function setAttributesIf(el, attrs) {
-  if (!el) return;
-  for (const [key, value] of Object.entries(attrs)) {
-    el.setAttribute(key, value);
-  }
+	if (!el) return;
+	for (const [key, value] of Object.entries(attrs)) {
+		el.setAttribute(key, value);
+	}
 }
 
 /**
@@ -36,13 +36,13 @@ export function setAttributesIf(el, attrs) {
  * @param {boolean} hidden
  */
 export function setHidden(el, hidden) {
-  if (!el) return;
-  el.hidden = hidden;
+	if (!el) return;
+	el.hidden = hidden;
 }
 
 /**
  * @returns {DocumentFragment}
  */
 export function createFragment() {
-  return document.createDocumentFragment();
+	return document.createDocumentFragment();
 }

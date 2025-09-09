@@ -1,4 +1,4 @@
-import { initializeApplication } from './services/app-controller.js';
+import { initializeApplication } from "./services/app-controller.js";
 
 /**
  * @async
@@ -7,16 +7,16 @@ import { initializeApplication } from './services/app-controller.js';
  * @throws {Error}
  */
 async function bootstrap() {
-  try {
-    await initializeApplication();
-  } catch (error) {
-    console.error('Application failed to initialize:', error);
-    throw error;
-  }
+	try {
+		await initializeApplication();
+	} catch (error) {
+		console.error("Application failed to initialize:", error);
+		throw error;
+	}
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', bootstrap);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", bootstrap);
 } else {
-  bootstrap();
+	bootstrap();
 }
