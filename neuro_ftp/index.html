@@ -67,10 +67,6 @@
         }
 
         const basePath = getBasePath();
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = basePath + 'assets/css/styles.css';
-        document.head.appendChild(link);
 
         const fontPreload = document.createElement('link');
         fontPreload.rel = 'preload';
@@ -80,7 +76,15 @@
         fontPreload.crossOrigin = 'anonymous';
         document.head.appendChild(fontPreload);
 
-        import(basePath + 'assets/js/index.js');
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = basePath + 'assets/css/styles.css';
+        document.head.appendChild(link);
+
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = basePath + 'assets/js/index.js';
+        document.head.appendChild(script);
     </script>
 </body>
 
