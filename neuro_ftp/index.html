@@ -54,15 +54,16 @@
         <link rel="preload" href="../assets/json/site.json" as="fetch" crossorigin>
         <link rel="preload" href="../assets/json/neuro-ftp-clients.json" as="fetch" crossorigin>
         */
+        // Set your repo name here for GitHub Pages deployments
+        const REPO_NAME = 'neuros-click';
+
         function getBasePath() {
             const pathname = window.location.pathname;
             const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
 
-            // i hate github pages
-            if (window.location.hostname.includes('github.io')) {
-                if (segments[0] === 'neuros-click') {
-                    return '/neuros-click/';
-                }
+            // h8 gh pages & pathing
+            if (window.location.hostname.includes('github.io') && segments[0] === REPO_NAME) {
+                return `/${REPO_NAME}/`;
             }
 
             if (segments.length <= 1) {
