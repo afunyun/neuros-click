@@ -17,11 +17,10 @@ export function getBasePath() {
 	const segments = pathname.replace(/\/$/, "").split("/").filter(Boolean);
 
 	// GitHub Pages specifically has the worst url resolution ever. can be removed on real domain
-	if (
-		window.location.hostname.includes("github.io") &&
-		segments[0] === "neuros-click"
-	) {
-		return "/neuros-click/";
+	if (window.location.hostname.includes("github.io")) {
+		if (segments[0] === "neuros-click") {
+			return "/neuros-click/";
+		}
 	}
 
 	if (segments.length <= 1) {
