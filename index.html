@@ -1,61 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="neuros.click - Under construction" property="og:title" />
+    <meta
+      content="A collection of sites created or maintained by Superbox for the Neuro-sama Community. Under construction"
+      property="og:description"
+    />
+    <meta content="https://neuros.click" property="og:url" />
+    <meta content="https://neuros.click/images/Neuro-fumo.png" property="og:image" />
+    <meta content="#0077FF" data-react-helmet="true" name="theme-color" />
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+    <title>neuros.click</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="preload"
+      href="./fonts/First Coffee.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="./data/site.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/pages.json" as="fetch" crossorigin />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta content="neuros.click - Under construction" property="og:title" />
-  <meta
-    content="A collection of sites created or maintained by Superbox for the Neuro-sama Community. Under construction"
-    property="og:description" />
-  <meta content="https://neuros.click" property="og:url" />
-  <meta content="https://neuros.click/assets/images/Neuro-fumo.png" property="og:image" />
-  <meta content="#0077FF" data-react-helmet="true" name="theme-color" />
-  <link rel="icon" type="image/png" href="./favicon.ico">
-  <title>neuros.click</title>
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <link rel="preload" href="./assets/fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./assets/json/site.json" as="fetch" crossorigin>
-  <link rel="preload" href="./assets/json/pages.json" as="fetch" crossorigin>
-</head>
-
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1 id="page-title">neuros.click</h1>
-      </div>
-      <div class="toolbar">
-        <button id="theme-btn" class="btn" title="Toggle theme">Toggle theme</button>
-        <a class="btn primary" href="#" id="primary-cta" hidden></a>
-      </div>
-    </header>
-    <p id="page-desc" class="lede">
-      A collection of sites created or maintained by Superbox for the Neuro-sama
-      Community
-    </p>
-    <h2>Pages</h2>
-    <p class="hint">
-      Below are the currently maintained pages. Click on a card to open the
-      corresponding site.
-    </p>
-
-    <div id="grid" class="grid" role="list"></div>
-
-    <footer>
-      <div class="footer-content">
-        <span id="foot"></span>
-        <div class="footer-disclaimer">
-          Unaffiliated with vedal987 and/or the vedal.ai organization.
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <h1 id="page-title">neuros.click</h1>
         </div>
-      </div>
-      <div class="footer-attribution">
-        <div>Site by <a href="https://github.com/afunyun/neuros-click">afunyun</a></div>
-      </div>
-    </footer>
-  </div>
-  <script type="module" src="./assets/js/index.js"></script>
-</body>
+        <div class="toolbar">
+          <button id="theme-btn" class="btn" title="Toggle theme">Toggle theme</button>
+          <a class="btn primary" href="#" id="primary-cta" hidden></a>
+        </div>
+      </header>
+      <p id="page-desc" class="lede">
+        A collection of sites created or maintained by Superbox for the Neuro-sama
+        Community
+      </p>
+      <h2>Pages</h2>
+      <p class="hint">
+        Below are the currently maintained pages. Click on a card to open the
+        corresponding site.
+      </p>
 
+      <div id="grid" class="grid" role="list"></div>
+
+      <footer>
+        <div class="footer-content">
+          <span id="foot"></span>
+          <div class="footer-disclaimer">
+            Unaffiliated with vedal987 and/or the vedal.ai organization.
+          </div>
+        </div>
+        <div class="footer-attribution">
+          <div>Site by <a href="https://github.com/afunyun/neuros-click">afunyun</a></div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>

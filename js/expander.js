@@ -1,8 +1,17 @@
 /**
- * @typedef {import('../types.js').Client} Client
+ * Pure FTP expander logic
+ * @typedef {Object} Client
+ * @property {string} id
+ * @property {string} name
+ * @property {string=} icon
+ * @property {string=} short
+ * @property {string=} instructions
+ * @property {string|null} downloadUrl
+ * @property {string=} importHref
+ * @property {string=} importLabel
  */
 
-import { resolveAssetPath } from "../data.js";
+import { resolveAssetPath } from "./main.js";
 
 function renderInstructions(listEl, instructions) {
 	listEl.innerHTML = "";

@@ -1,8 +1,14 @@
 /**
- * @typedef {import('../types.js').Page} Page
+ * Pure card rendering logic
+ * @typedef {Object} Page
+ * @property {string} name
+ * @property {string=} description
+ * @property {string=} image
+ * @property {string=} hoverImage
+ * @property {string=} href
  */
 
-import { resolveAssetPath } from "../data.js";
+import { resolveAssetPath } from "./main.js";
 
 /**
  * @param {HTMLElement|null} container

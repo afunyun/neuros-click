@@ -1,3 +1,9 @@
+/**
+ * Standalone theme functionality
+ */
+
+import { getElementById, setTextIf } from "./main.js";
+
 const STORAGE_KEY = "theme";
 const THEME_AUTO = "auto";
 const THEME_LIGHT = "light";
@@ -39,8 +45,6 @@ export function setTheme(theme) {
 		throw error;
 	}
 }
-
-import { getElementById, setTextIf } from "../utils/dom.js";
 
 /**
  * @param {{ buttonId?: string }} [opts]
