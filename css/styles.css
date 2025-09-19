@@ -266,6 +266,8 @@ h2 {
   width: 100%;
   position: relative;
   transition: transform 0.2s ease, filter 0.2s ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 140px;
 }
 
 .card:hover {

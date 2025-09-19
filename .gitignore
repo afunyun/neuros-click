@@ -2,3 +2,4 @@ assets/images-archive/*
 devel/*
 .release_stage/*
 scripts/*
+*.tar.gz
