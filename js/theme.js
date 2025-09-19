@@ -1,5 +1,5 @@
 /**
- * Standalone theme functionality
+ * Handles the theme toggle and persists it
  */
 
 import { getElementById, setTextIf } from "./main.js";

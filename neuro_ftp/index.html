@@ -4,6 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>neuros.click - FTP Setup</title>
+    <link rel="icon" type="image/png" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="preload"
+      href="../fonts/First Coffee.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="../data/site.json" as="fetch" crossorigin />
+    <link rel="preload" href="../data/neuro-ftp-clients.json" as="fetch" crossorigin />
   </head>
 
   <body>
@@ -45,70 +56,6 @@
         </div>
       </footer>
     </div>
-    <script type="module">
-      /* These can be included up in the head if the path is known and fixed, but for this page it needs to be dynamic while on GH Pages because microsoft hates me. Literally this entire module is not needed if not on GH pages deployment.
-
-        <link rel="stylesheet" href="../css/styles.css" />
-        <link rel="preload" href="../fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../data/site.json" as="fetch" crossorigin>
-        <link rel="preload" href="../data/neuro-ftp-clients.json" as="fetch" crossorigin>
-        */
-      // Set your repo name here for GitHub Pages deployments
-      const REPO_NAME = 'neuros-click';
-
-      function getBasePath() {
-        const pathname = window.location.pathname;
-        const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
-
-        // h8 gh pages & pathing
-        if (window.location.hostname.includes('github.io') && segments[0] === REPO_NAME) {
-          return `/${REPO_NAME}/`;
-        }
-
-        if (segments.length <= 1) {
-          return './';
-        }
-
-        const depth = segments.length - 1;
-        return '../'.repeat(depth);
-      }
-
-      const basePath = getBasePath();
-      console.log('Current pathname:', window.location.pathname);
-      console.log('Calculated basePath:', basePath);
-      console.log('JS path will be:', basePath + 'js/main.js');
-
-      const favicon = document.createElement('link');
-      favicon.rel = 'icon';
-      favicon.type = 'image/png';
-      favicon.href = basePath + 'favicon.ico';
-      document.head.appendChild(favicon);
-
-      const fontPreload = document.createElement('link');
-      fontPreload.rel = 'preload';
-      fontPreload.href = basePath + 'fonts/First Coffee.woff2';
-      fontPreload.as = 'font';
-      fontPreload.type = 'font/woff2';
-      fontPreload.crossOrigin = 'anonymous';
-      document.head.appendChild(fontPreload);
-
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = basePath + 'css/styles.css';
-      document.head.appendChild(link);
-
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.src = basePath + 'js/main.js';
-      script.onerror = function (e) {
-        console.error('Failed to load script:', e);
-        console.error('Attempted path:', script.src);
-        const fallbackScript = document.createElement('script');
-        fallbackScript.type = 'module';
-        fallbackScript.src = '/neuros-click/js/main.js';
-        document.head.appendChild(fallbackScript);
-      };
-      document.head.appendChild(script);
-    </script>
+    <script type="module" src="../js/main.js"></script>
   </body>
 </html>

@@ -65,6 +65,8 @@ export function mountExpanders(host, clients) {
 			logoImg.alt = "";
 			logoImg.loading = "lazy";
 			logoImg.decoding = "async";
+			logoImg.width = 120;
+			logoImg.height = 120;
 			logoThumb.appendChild(logoImg);
 
 			const cardBody = document.createElement("div");

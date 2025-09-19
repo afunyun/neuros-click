@@ -376,15 +376,7 @@ footer {
   margin-bottom: 0;
 }
 
-.footer-attribution a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.footer-attribution a:hover {
-  opacity: 0.7;
-}
-
+/* Global link styles first to avoid descending specificity with footer links */
 a,
 a:visited {
   color: var(--link);
@@ -394,6 +386,15 @@ a:visited {
 
 a:hover {
   color: var(--link-hover);
+}
+
+.footer-attribution a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.footer-attribution a:hover {
+  opacity: 0.7;
 }
 
 a:focus-visible,
@@ -435,6 +436,43 @@ a:focus-visible,
   margin: 16px 0 24px;
   align-items: start;
   justify-content: center;
+}
+
+/* Base layout helpers placed before responsive overrides */
+.instructions {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 12px;
+}
+
+.instructions .step {
+  color: var(--text);
+  background: transparent;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.expand-indicator {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.expander-head .actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.expander-head .actions .btn {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  flex: 1;
 }
 
 @media (max-width: 900px) and (min-width: 701px) {
@@ -715,13 +753,6 @@ a:focus-visible,
   flex: 1;
 }
 
-.expand-indicator {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 6px;
-  font-weight: 500;
-}
-
 .expander.expanded .expander-panel {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -770,4 +801,52 @@ a:focus-visible,
 
 .card .thumb img[loading] {
   opacity: 0.7;
+}
+
+/* Skeleton loading placeholders to minimize CLS */
+.card.skeleton {
+  pointer-events: none;
+  filter: none;
+}
+
+.card.skeleton .thumb,
+.card.skeleton .title,
+.card.skeleton .desc {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.15) 30%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.15) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+.card.skeleton .thumb {
+  border: 1px solid var(--border);
+}
+
+.card.skeleton .title {
+  height: 20px;
+  width: 45%;
+  border-radius: 6px;
+}
+
+.card.skeleton .desc {
+  height: 14px;
+  width: 80%;
+  margin-top: 8px;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

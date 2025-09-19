@@ -306,8 +306,28 @@ async function initializePageCards() {
 		return;
 	}
 
-	gridContainer.innerHTML =
-		'<div class="loading-spinner" style="margin: 20px auto;"></div>';
+	// skellies fix the layout shift while loading
+	const skeletonCount = 4;
+	const skeletonFrag = document.createDocumentFragment();
+	for (let i = 0; i < skeletonCount; i++) {
+		const sk = document.createElement("div");
+		sk.className = "card skeleton";
+		const thumb = document.createElement("div");
+		thumb.className = "thumb";
+		const body = document.createElement("div");
+		body.className = "body";
+		const title = document.createElement("div");
+		title.className = "title";
+		const desc = document.createElement("div");
+		desc.className = "desc";
+		body.appendChild(title);
+		body.appendChild(desc);
+		sk.appendChild(thumb);
+		sk.appendChild(body);
+		skeletonFrag.appendChild(sk);
+	}
+	gridContainer.innerHTML = "";
+	gridContainer.appendChild(skeletonFrag);
 	gridContainer.classList.add("loading");
 
 	try {
@@ -330,6 +350,29 @@ async function initializeFtpExpanders() {
 	}
 
 	try {
+		// more skellies for expanders to reserve space
+		const skeletonCount = 2;
+		const skeletonFrag = document.createDocumentFragment();
+		for (let i = 0; i < skeletonCount; i++) {
+			const sk = document.createElement("div");
+			sk.className = "card skeleton";
+			const thumb = document.createElement("div");
+			thumb.className = "thumb";
+			const body = document.createElement("div");
+			body.className = "body";
+			const title = document.createElement("div");
+			title.className = "title";
+			const desc = document.createElement("div");
+			desc.className = "desc";
+			body.appendChild(title);
+			body.appendChild(desc);
+			sk.appendChild(thumb);
+			sk.appendChild(body);
+			skeletonFrag.appendChild(sk);
+		}
+		expanderHost.innerHTML = "";
+		expanderHost.appendChild(skeletonFrag);
+
 		const ftpData = await getFtpClients();
 		const clients =
 			ftpData && typeof ftpData === "object" && Array.isArray(ftpData.clients)
