@@ -751,7 +751,7 @@ async function initializePageCards() {
 async function initializeFtpExpanders() {
 	const expanderHost = getElementById(CONSTANTS.ELEMENT_IDS.CLIENT_EXPANDERS)
 	if (!expanderHost) {
-		console.debug("couldn't find expander.js, it may be missing. skipping.")
+		console.debug("couldn't find expander, it may be missing. skipping.")
 		return
 	}
 
@@ -838,9 +838,7 @@ export async function initializeApplication() {
 	).length
 	const total = nonCriticalResults.length
 
-	console.log(
-		`Application initialized in ${duration}ms (${successful}/${total} modules successful)`
-	)
+	console.log(`Application initialized in ${duration}ms (${successful}/${total} modules successful)`)
 	AppState.initialized = true
 }
 
