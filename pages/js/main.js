@@ -310,7 +310,7 @@ function _validateClientsData(data) {
  */
 export function clearMemoryCache() {
 	AppState._cache.clear()
-	console.debug('Memory cache cleared')
+	// console.debug('Memory cache cleared')
 }
 
 /**
@@ -319,7 +319,7 @@ export function clearMemoryCache() {
 export function invalidateCache(urls) {
 	if (urls) {
 		urls.forEach((url) => AppState._cache.delete(url))
-		console.debug(`Cache invalidated for ${urls.length} URLs`)
+		// console.debug(`Cache invalidated for ${urls.length} URLs`)
 	} else {
 		clearMemoryCache()
 	}
@@ -554,7 +554,7 @@ export function applySiteCta(siteConfig, ctaId = CONSTANTS.ELEMENT_IDS.PRIMARY_C
 	try {
 		const ctaEl = getElementById(ctaId)
 		if (!ctaEl) {
-			console.debug(`CTA element not found: ${ctaId}`)
+			// console.warn(`CTA element not found: ${ctaId}`)
 			return
 		}
 
@@ -589,7 +589,7 @@ export function applySiteCta(siteConfig, ctaId = CONSTANTS.ELEMENT_IDS.PRIMARY_C
 
 		setHidden(ctaEl, false)
 	} catch (error) {
-		console.warn(`Failed to apply site CTA: ${error.message}`)
+		// console.warn(`Failed to apply site CTA: ${error.message}`)
 	}
 }
 
@@ -634,7 +634,7 @@ export function initFooter(siteConfig, footerId = CONSTANTS.ELEMENT_IDS.FOOTER) 
 	try {
 		const footerEl = getElementById(footerId)
 		if (!footerEl) {
-			console.debug(`Footer element not found: ${footerId}`)
+			console.warn(`Footer element not found: ${footerId}`)
 			return
 		}
 
@@ -667,7 +667,7 @@ import { initThemeControl } from './theme.js'
 async function initializeTheme() {
 	try {
 		initThemeControl()
-		console.debug('Theme control initialized successfully')
+		// console.debug('Theme control initialized successfully')
 	} catch (error) {
 		console.warn('Theme control initialization failed, using system defaults:', error)
 	}
@@ -682,7 +682,7 @@ async function initializeSiteConfig() {
 		const siteConfig = await getSiteConfig()
 		applySiteConfiguration(siteConfig)
 		initFooter(siteConfig)
-		console.debug('Site configuration applied successfully')
+		// console.debug('Site configuration applied successfully')
 		return siteConfig
 	} catch (error) {
 		console.error('Critical error in site configuration:', error)
@@ -710,7 +710,7 @@ async function initializeSiteConfig() {
 async function initializePageCards() {
 	const gridContainer = getElementById(CONSTANTS.ELEMENT_IDS.GRID)
 	if (!gridContainer) {
-		console.debug('Grid container not found, skipping page cards initialization')
+		console.warn('Grid container not found, skipping page cards initialization')
 		return
 	}
 
@@ -726,7 +726,7 @@ async function initializePageCards() {
 		const { renderCards } = await import('./cards.js')
 		renderCards(gridContainer, pageData.pages || [])
 
-		console.debug('Page cards initialized successfully')
+		// console.debug('Page cards initialized successfully')
 	} catch (error) {
 		gridContainer.classList.remove('loading')
 
@@ -749,13 +749,14 @@ async function initializePageCards() {
  * @returns {Promise<void>}
  */
 async function initializeFtpExpanders() {
-	const expanderElements = document.querySelectorAll(".expander")
-	if (expanderElements.length > 0) {
-		const expanderHost = getElementById(CONSTANTS.ELEMENT_IDS.CLIENT_EXPANDERS)
-		if (!expanderHost) {
-			console.debug("couldn't find expander, it may be missing. skipping.")
-			return
-		}
+	// Only run expander initialization on neuro-ftp page
+	if (!document.location.pathname.includes('/neuro-ftp')) {
+		return
+	}
+
+	const expanderHost = getElementById(CONSTANTS.ELEMENT_IDS.CLIENT_EXPANDERS)
+	if (!expanderHost) {
+		return // no host found, skip initialization
 	}
 
 	try {
@@ -769,7 +770,7 @@ async function initializeFtpExpanders() {
 		const { mountExpanders } = await import('./expander.js')
 		mountExpanders(expanderHost, clients)
 
-		console.debug(`FTP expanders initialized with ${clients.length} clients`)
+		// console.debug(`FTP expanders initialized with ${clients.length} clients`)
 	} catch (error) {
 		expanderHost.innerHTML =
 			'<div class="info-state">FTP client information temporarily unavailable</div>'
@@ -790,7 +791,7 @@ export async function initializeApplication() {
 	const startTime = performance.now()
 	const criticalErrors = []
 
-	console.debug('Starting application initialization...')
+	// console.debug('Starting application initialization...')
 
 	// required otherwise it's over
 	const criticalTasks = [{ name: 'Site Configuration', task: initializeSiteConfig }]
@@ -852,7 +853,7 @@ export async function initializeApplication() {
 async function bootstrap() {
 	try {
 		await initializeApplication()
-		console.debug('Application bootstrap completed successfully')
+		// console.debug('Application bootstrap completed successfully')
 	} catch (error) {
 		console.error('Application bootstrap failed:', error)
 
