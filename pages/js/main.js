@@ -749,10 +749,13 @@ async function initializePageCards() {
  * @returns {Promise<void>}
  */
 async function initializeFtpExpanders() {
-	const expanderHost = getElementById(CONSTANTS.ELEMENT_IDS.CLIENT_EXPANDERS)
-	if (!expanderHost) {
-		console.debug("couldn't find expander, it may be missing. skipping.")
-		return
+	const expanderElements = document.querySelectorAll(".expander")
+	if (expanderElements.length > 0) {
+		const expanderHost = getElementById(CONSTANTS.ELEMENT_IDS.CLIENT_EXPANDERS)
+		if (!expanderHost) {
+			console.debug("couldn't find expander, it may be missing. skipping.")
+			return
+		}
 	}
 
 	try {
