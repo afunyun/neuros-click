@@ -5,7 +5,7 @@
 			"name": "WinSCP",
 			"short": "The preferred and likely easiest client. Easy setup for Windows. Supports direct connection via server URI.",
 			"downloadUrl": "https://winscp.net/eng/download.php",
-			"icon": "./images/winscp-logo.png",
+			"icon": "../images/winscp-logo.png",
 			"instructions": "1) Download and install WinSCP from the official site.\n2) Launch WinSCP.\n3) Click the link below.\n4) Accept the request to open the link when prompted by your browser.\n5) If necessary, login by selecting the Neuro FTP site. There is no password, so just click ok.",
 			"importLabel": "Connect with winSCP",
 			"importHref": "winscp-ftpes://RandomNeuroStuff:@neuros.click/"
@@ -15,17 +15,17 @@
 			"name": "FileZilla",
 			"short": "Cross‑platform. Supports .xml Site Manager import.",
 			"downloadUrl": "https://filezilla-project.org/download.php",
-			"icon": "./images/filezilla-logo.png",
+			"icon": "../images/filezilla-logo.png",
 			"instructions": "1) Download and install FileZilla.\n2) Open FileZilla and go to File > Import.\n3) Choose the downloaded .xml configuration file.\n4) Open File > Site Manager, select the imported Neuro FTP entry.\n5) Click Connect to start.",
 			"importLabel": "Download FileZilla XML",
-			"importHref": "./neuros-click-filezilla.xml"
+			"importHref": "../neuros-click-filezilla.xml"
 		},
 		{
 			"id": "Other clients",
 			"name": "Other FTP Clients",
 			"short": "Various other FTP clients.",
 			"downloadUrl": null,
-			"icon": "./images/neuro-wot.png",
+			"icon": "../images/neuro-wot.png",
 			"instructions": "1) Configuration for an existing FTP client:\n-- Server: neuros.click\n-- Port: 21\n-- Protocol: FTP over explicit TLS\n-- Username: RandomNeuroStuff\n-- Password: (leave blank)\n\n2) Save the configuration and connect to the server.",
 			"importLabel": "Connect with Other Clients",
 			"importHref": null

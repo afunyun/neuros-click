@@ -9,7 +9,7 @@
   --light-text: #222222;
   --light-muted: #5b3f2e;
   --light-border: #c9c6e0;
-  --light-card: #fda3ad;
+  --light-card: #fea8ae;
   --light-accent: #7cdbd3;
   --light-accent-contrast: #ffffff;
   --light-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -18,7 +18,7 @@
   --light-warning: #f5c356;
   --light-danger: #c72e49;
   --light-charcoal: #222222;
-  --light-neutral: #e7d5b8;
+  --light-neutral: #f58796;
   --light-bg-accent-radial-start: rgba(124, 219, 211, 0.1);
   --light-logo-accent-tint: #bdebe7;
   --light-accent-border: #bdebe7;
@@ -27,8 +27,8 @@
   --light-link-underline: rgba(199, 46, 73, 0.5);
   --light-link-hover: #d45165;
   --light-focus-outline: rgba(199, 46, 73, 0.85);
-  --light-hint-bg: rgba(231, 213, 184, 0.25);
-  --light-hint-border: rgba(201, 198, 224, 0.6);
+  --light-hint-bg: #fea8ae;
+  --light-hint-border: rgba(124, 219, 211, 0.1);
   --light-neutral-border: #c1a987;
   --light-neutral-hover: #ecdcc3;
   --light-surface-neutral-bg: #f7efe6;
@@ -38,22 +38,22 @@
   --dark-muted: #d9d9d9;
   --dark-border: #4a2f2e;
   --dark-card: #91394a;
-  --dark-accent: #6b1f2c;
+  --dark-accent: #390014;
   --dark-accent-contrast: #ffffff;
   --dark-shadow: 0 1px 2px rgba(18, 18, 18, 0.6), 0 8px 24px rgba(18, 18, 18, 0.5);
-  --dark-link: #ff6f81;
+  --dark-link: #ff8a9a;
   --dark-success: #63a861;
   --dark-warning: #e9783a;
   --dark-danger: #e24d5e;
   --dark-charcoal: #2a2a2a;
   --dark-neutral: #b58e79;
   --dark-bg-accent-radial-start: rgba(107, 31, 44, 0.25);
-  --dark-logo-accent-tint: #fda3ad;
+  --dark-logo-accent-tint: #fea8ae;
   --dark-accent-border: #5a1a26;
   --dark-accent-hover: #7a2634;
   --dark-thumb-bg: #5a1a26;
-  --dark-link-underline: rgba(226, 77, 94, 0.5);
-  --dark-link-hover: #ff6f81;
+  --dark-link-underline: rgba(255, 138, 154, 0.6);
+  --dark-link-hover: #fea8ae;
   --dark-focus-outline: rgba(226, 77, 94, 0.85);
   --dark-hint-bg: #5a1a26;
   --dark-hint-border: rgba(74, 47, 46, 0.8);
@@ -210,6 +210,7 @@ h1 {
   justify-content: center;
   text-align: center;
   transition: background-color 0.2s ease, filter 0.2s ease;
+  flex-direction: column;
 }
 
 .btn:hover {
@@ -239,6 +240,14 @@ h2 {
   margin: 24px 0 8px;
   color: var(--muted);
   text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-family: 'First Coffee', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji',
+    'Segoe UI Emoji';
 }
 
 .hint {

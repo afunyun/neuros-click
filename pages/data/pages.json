@@ -5,13 +5,13 @@
 			"description": "The Neuro FTP server for random Neuro-sama content. Click for connection info.",
 			"image": "./images/folder-closed.png",
 			"hoverImage": "./images/folder-open.png",
-			"href": "./neuro_ftp/index.html"
+			"href": "./neuro-ftp/"
 		},
 		{
 			"name": "NeuroSynth Project",
 			"description": "Details on the NeuroSynth project, an effort to recreate a production quality Neuro-sama voicebank.\nAlso contains information on commissioning a custom Neuro song cover from Superbox using NeuroSynth, how to support the project, and more.",
 			"image": "./images/signature-look-outline.png",
-			"href": "./neuro_synth/index.html"
+			"href": "./neuro-synth/"
 		}
 	]
 }

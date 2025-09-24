@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var KEY = 'theme'
+        var saved = localStorage.getItem(KEY)
+        var html = document.documentElement
+        if (saved === 'light' || saved === 'dark') {
+          html.setAttribute('data-theme', saved)
+        } else {
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+          html.setAttribute('data-theme', prefersDark ? 'dark' : 'light')
+        }
+      } catch (e) {
+        /* no-op */
+      }
+    })();
+  </script>
+  <meta content="neuroSynth - Neuro-sama SynthV Voicebank" property="og:title" />
+  <meta
+    content="A SynthV voicebank project aiming to recreate Neuro-sama's singing ability. Custom covers and commissions available."
+    property="og:description" />
+  <meta content="https://neuros.click/neurosynth" property="og:url" />
+  <meta content="https://neuros.click/images/Neuro-fumo.png" property="og:image" />
+  <meta content="#0077FF" data-react-helmet="true" name="theme-color" />
+  <link rel="icon" type="image/png" href="../favicon.ico" />
+  <title>NeuroSynth | neuros.click</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="preload" href="../fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>
+          <a href="../" style="text-decoration: none; color: inherit">NeuroSynthProject</a>
+        </h1>
+      </div>
+      <div class="toolbar">
+        <button id="theme-btn" class="btn" title="Toggle theme">Toggle theme</button>
+        <a class="btn primary" href="../">Home</a>
+      </div>
+    </header>
+
+    <div style="margin-bottom: 32px">
+      <p class="lede">
+        An RVC voicebank project aiming to recreate Neuro-sama's distinctive singing
+        voice using Retrieval-based Voice Conversion (RVC) technology.
+      </p>
+    </div>
+
+    <div class="hint" style="margin-bottom: 32px; margin-top: 32px; vertical-align: middle; text-align: center">
+      <h3><img src="../images/neuroDinkDonk-1x.avif"
+          srcset="../images/neuroDinkDonk-1x.avif 1x, ../images/neuroDinkDonk-2x.avif 2x" alt="Neuro DinkDonk"
+          style="height: 1.2em; vertical-align: middle;"> Commissions Available! <img
+          src="../images/neuroDinkDonk-1x.avif"
+          srcset="../images/neuroDinkDonk-1x.avif 1x, ../images/neuroDinkDonk-2x.avif 2x" alt="Neuro DinkDonk"
+          style="height: 1.2em; vertical-align: middle;"></h3>
+      See ways to contribute below for more info.
+    </div>
+
+    <h2>About NeuroSynth</h2>
+    <p style="margin-bottom: 24px; line-height: 1.6">
+      Neuro-sama is an amazing singer, whose singing is mainly enabled through the use
+      of techniques similar to those used in Vocaloid, and later SynthV. However, her
+      voice is not available publicly, so this project aims to create a high-quality
+      Neuro-like voicebank, enabling the creation of covers (and more, like original
+      songs) that don't exist officially.
+      <br /><br />NeuroSynth does not use SynthV, but is an RVC voice model that can be
+      tuned and controlled in a manner very similar to SynthV.
+    </p>
+
+    <h2>Demonstrations</h2>
+    <p class="hint">Check out these examples to hear what NeuroSynth is capable of:</p>
+    <div style="display: grid; gap: 24px; margin: 24px 0 32px">
+      <div class="card" style="flex-direction: column; min-height: auto">
+        <div style="
+              position: relative;
+              width: 100%;
+              padding-bottom: 56.25%;
+              height: 0;
+              overflow: hidden;
+            ">
+          <iframe src="https://www.youtube.com/embed/b1HNHqSdGW4" title="neuroSynth Demo 1" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+              "></iframe>
+        </div>
+        <div class="body">
+          <div class="title">RAISE UP YOUR BAT</div>
+          <div class="desc">Showcasing NeuroSynth's vocal capabilities and range</div>
+        </div>
+      </div>
+
+      <div class="card" style="flex-direction: column; min-height: auto">
+        <div style="
+              position: relative;
+              width: 100%;
+              padding-bottom: 56.25%;
+              height: 0;
+              overflow: hidden;
+            ">
+          <iframe src="https://www.youtube.com/embed/49CrynNZAR0" title="neuroSynth Demo 2" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+              "></iframe>
+        </div>
+        <div class="body">
+          <div class="title">BOOM - Neuro Version</div>
+          <div class="desc">Neuro covering Evil's original song</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Support the Project</h2>
+    <div id="#commissions" class="hint" style="padding: 24px; margin: 24px 0">
+      <div style="text-align: center">
+        <h3 style="margin: 0 0 16px; font-size: 1.1rem; color: var(--text)">
+          That sounds cool, I want to help!
+        </h3>
+        <p style="color: var(--muted); margin-bottom: 20px; line-height: 1.6">
+          The best way to help is to contribute to the ongoing cost of training the model. Every contribution helps
+          improve the voicebank quality and fund ongoing research. Of course, commissions are also a great way to
+          support the project while getting something fun in return!
+        </p>
+        <div class="btn primary"
+          style="text-align: center; margin: 16px 0; display:flex; flex-direction:column; gap:8px; align-items:center; padding:12px 24px; min-width:200px">
+          <strong>Crypto donations accepted</strong>
+          <small style="color: var(--muted)">Wallet addresses and supported currencies coming soon!</small>
+        </div>
+        <div class="btn primary"
+          style="text-align: center; margin: 16px 0; display:flex; flex-direction:column; gap:8px; align-items:center; padding:12px 24px; min-width:200px">
+          <strong>Commission a Cover</strong>
+          <a href="https://discord.com/invite/neurosama" target="_blank" rel="noopener noreferrer"><small>Contact
+              superbox2147 on the Discord for custom songs!</small></a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <span>NeuroSynth</span><span> | </span><span id="foot"></span>
+        <div class="footer-disclaimer">
+          Unaffiliated with <a href="https://vedal.ai">vedal.ai</a>
+        </div>
+      </div>
+      <div class="footer-attribution">
+        <div>Site by <a href="https://github.com/afunyun/neuros-click">afunyun</a></div>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+</body>
+
+</html>
