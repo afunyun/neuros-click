@@ -250,6 +250,14 @@ h3 {
     'Segoe UI Emoji';
 }
 
+h4 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-family: 'First Coffee', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+}
+
 .hint {
   color: var(--muted);
   font-size: 0.95rem;
@@ -857,4 +865,19 @@ a:focus-visible,
   100% {
     background-position: -200% 0;
   }
+}
+pre {
+  background-color: var(--surface);
+  color: var(--text);
+  padding: 4px;
+  border-radius: 2px;
+  overflow-x: auto;
+  margin-bottom: 4px;
+}
+
+code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1em;
+  line-height: 1.4;
+  color: var(--text);
 }

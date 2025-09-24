@@ -9,7 +9,7 @@
 		},
 		{
 			"name": "NeuroSynth Project",
-			"description": "NeuroSynth, aiming to recreate Neuro's singing voice via RVC. \nEver wanted a song covered but it hasn't been picked for karaoke? You can commission it here! Details inside.",
+			"description": "NeuroSynth, aiming to recreate Neuro's singing voice via vocal synthesis. \nEver wanted a song covered but it hasn't been picked for karaoke? You can commission it here! Details inside.",
 			"image": "./images/signature-look-outline.png",
 			"href": "./neuro-synth/"
 		}
