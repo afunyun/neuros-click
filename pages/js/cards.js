@@ -8,7 +8,6 @@
  * @property {string=} href
  */
 
-
 /**
  * @param {HTMLElement|null} container
  * @param {Page[]} items
@@ -30,13 +29,13 @@ export function renderCards(container, items) {
 
 		for (const item of items) {
 			const a = document.createElement("a")
-			a.href =
-				typeof item.href === "string" && item.href.length ? item.href : "#"
+			a.href = typeof item.href === "string" && item.href.length ? item.href : "#"
 			a.className = "card stretch"
 			a.setAttribute("role", "listitem")
 
 			const thumb = document.createElement("div")
 			thumb.className = "thumb"
+
 			if (item.image) {
 				const img = document.createElement("img")
 				img.src = item.image
@@ -98,8 +97,7 @@ export function renderCards(container, items) {
 		container.appendChild(frag)
 	} catch (error) {
 		console.error("Failed to render cards:", error)
-		container.innerHTML =
-			'<div class="card"><div class="body"><div class="title">Error loading content</div><div class="desc">Please refresh the page to try again.</div></div></div>'
+		container.innerHTML = '<div class="card"><div class="body"><div class="title">Error loading content</div><div class="desc">Please refresh the page to try again.</div></div></div>'
 		throw error
 	}
 }

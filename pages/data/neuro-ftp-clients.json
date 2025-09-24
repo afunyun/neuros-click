@@ -18,7 +18,7 @@
 			"icon": "../images/filezilla-logo.png",
 			"instructions": "1) Download and install FileZilla.\n2) Open FileZilla and go to File > Import.\n3) Choose the downloaded .xml configuration file.\n4) Open File > Site Manager, select the imported Neuro FTP entry.\n5) Click Connect to start.",
 			"importLabel": "Download FileZilla XML",
-			"importHref": "../neuros-click-filezilla.xml"
+			"importHref": "../data/neuros-click-filezilla.xml"
 		},
 		{
 			"id": "Other clients",

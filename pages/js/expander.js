@@ -1,5 +1,5 @@
 /**
- * Pure FTP expander logic
+ * FTP expander logic
  * @typedef {Object} Client
  * @property {string} id
  * @property {string} name
@@ -11,19 +11,70 @@
  * @property {string=} importLabel
  */
 
-function renderInstructions(listEl, instructions) {
-	listEl.innerHTML = "";
+/**
+ * @param {HTMLElement} listEl
+ * @param {string=} instructions
+ * @private
+ */
+function _renderInstructions(listEl, instructions) {
+	listEl.innerHTML = ""
 	const frag = document.createDocumentFragment();
 	(instructions || "")
 		.split("\n")
 		.filter(Boolean)
 		.forEach((line) => {
-			const div = document.createElement("div");
-			div.className = "step";
-			div.textContent = line;
-			frag.appendChild(div);
-		});
-	listEl.appendChild(frag);
+			const div = document.createElement("div")
+			div.className = "step"
+			div.textContent = line
+			frag.appendChild(div)
+		})
+	listEl.appendChild(frag)
+}
+
+/**
+ * Creates action buttons container
+ * @param {Client} client
+ * @param {boolean} isPanel
+ * @returns {HTMLDivElement}
+ * @private
+ */
+function _createActionButtons(client, isPanel = false) {
+	const actions = document.createElement("div")
+	actions.className = "actions"
+
+	// Stop click propagation to prevent expander toggle
+	actions.addEventListener("click", (e) => e.stopPropagation())
+
+	if (client.downloadUrl) {
+		const downloadButton = document.createElement("a")
+		downloadButton.className = "btn primary"
+		downloadButton.href = client.downloadUrl
+		downloadButton.target = "_blank"
+		downloadButton.rel = "noopener noreferrer"
+		downloadButton.textContent = `Get ${client.name}`
+		actions.appendChild(downloadButton)
+	}
+
+	if (client.importHref) {
+		const importButton = document.createElement("a")
+		importButton.className = "btn neutral"
+		importButton.href = client.importHref
+		if (!client.importHref.startsWith("http") && !client.importHref.startsWith("winscp")) {
+			importButton.download = ""
+		}
+		importButton.textContent = client.importLabel || "Connect"
+		actions.appendChild(importButton)
+	}
+
+	// Only show hint in expanded panel
+	if (isPanel && !client.downloadUrl && !client.importHref) {
+		const importNote = document.createElement("div")
+		importNote.className = "hint"
+		importNote.textContent = "No download or import available"
+		actions.appendChild(importNote)
+	}
+
+	return actions
 }
 
 /**
@@ -32,198 +83,134 @@ function renderInstructions(listEl, instructions) {
  */
 export function mountExpanders(host, clients) {
 	if (!host) {
-		console.warn("Cannot mount expanders: no host element");
-		return;
+		console.warn("Cannot mount expanders: no host element")
+		return
 	}
 
 	if (!Array.isArray(clients)) {
-		console.warn("Cannot mount expanders: clients should be an array");
-		return;
+		console.warn("Cannot mount expanders: clients should be an array")
+		return
 	}
 
 	try {
-		host.innerHTML = "";
-		const fragment = document.createDocumentFragment();
+		host.innerHTML = ""
+		const fragment = document.createDocumentFragment()
 
 		clients.forEach((client) => {
-			const expanderContainer = document.createElement("div");
-			expanderContainer.className = "expander";
-			expanderContainer.dataset.id = client.id;
+			const expanderContainer = document.createElement("div")
+			expanderContainer.className = "expander"
+			expanderContainer.dataset.id = client.id
 
-			const cardHeader = document.createElement("div");
-			cardHeader.className = "card expander-head";
-			cardHeader.setAttribute("role", "button");
-			cardHeader.setAttribute("tabindex", "0");
-			cardHeader.setAttribute("aria-expanded", "false");
+			// Header
+			const cardHeader = document.createElement("div")
+			cardHeader.className = "card expander-head"
+			cardHeader.setAttribute("role", "button")
+			cardHeader.setAttribute("tabindex", "0")
+			cardHeader.setAttribute("aria-expanded", "false")
 
-			const logoThumb = document.createElement("div");
-			logoThumb.className = "thumb";
-			const logoImg = document.createElement("img");
-			logoImg.src = client.icon || "";
-			logoImg.alt = "";
-			logoImg.loading = "lazy";
-			logoImg.decoding = "async";
-			logoImg.width = 120;
-			logoImg.height = 120;
-			logoThumb.appendChild(logoImg);
+			const logoThumb = document.createElement("div")
+			logoThumb.className = "thumb"
+			const logoImg = document.createElement("img")
+			logoImg.src = client.icon || ""
+			logoImg.alt = ""
+			logoImg.loading = "lazy"
+			logoImg.decoding = "async"
+			logoImg.width = 120
+			logoImg.height = 120
+			logoThumb.appendChild(logoImg)
 
-			const cardBody = document.createElement("div");
-			cardBody.className = "body";
+			const cardBody = document.createElement("div")
+			cardBody.className = "body"
 
-			const cardTitle = document.createElement("div");
-			cardTitle.className = "title";
-			cardTitle.textContent = client.name;
+			const cardTitle = document.createElement("div")
+			cardTitle.className = "title"
+			cardTitle.textContent = client.name
 
-			const cardDesc = document.createElement("div");
-			cardDesc.className = "desc";
-			cardDesc.textContent = client.short || "";
+			const cardDesc = document.createElement("div")
+			cardDesc.className = "desc"
+			cardDesc.textContent = client.short || ""
 
-			const cardActions = document.createElement("div");
-			cardActions.className = "actions";
+			const expandIndicator = document.createElement("div")
+			expandIndicator.className = "expand-indicator"
+			expandIndicator.textContent = "> Expand"
 
-			if (client.downloadUrl) {
-				const downloadButton = document.createElement("a");
-				downloadButton.className = "btn primary";
-				downloadButton.href = client.downloadUrl;
-				downloadButton.target = "_blank";
-				downloadButton.rel = "noopener noreferrer";
-				downloadButton.textContent = `Get ${client.name}`;
-				downloadButton.addEventListener("click", (e) => e.stopPropagation());
-				cardActions.appendChild(downloadButton);
-			}
+			cardBody.appendChild(cardTitle)
+			cardBody.appendChild(cardDesc)
+			cardBody.appendChild(_createActionButtons(client, false))
+			cardBody.appendChild(expandIndicator)
 
-			if (client.importHref) {
-				const connectButton = document.createElement("a");
-				connectButton.className = "btn neutral";
-				connectButton.href = client.importHref;
-				if (!client.importHref.startsWith("http")) {
-					connectButton.download = "";
-				}
-				connectButton.textContent = client.importLabel || "Connect";
-				connectButton.addEventListener("click", (e) => e.stopPropagation());
-				cardActions.appendChild(connectButton);
-			}
+			cardHeader.appendChild(logoThumb)
+			cardHeader.appendChild(cardBody)
 
-			const expandIndicator = document.createElement("div");
-			expandIndicator.className = "expand-indicator";
-			expandIndicator.textContent = "> Expand";
+			// Panel
+			const expandedPanel = document.createElement("div")
+			expandedPanel.className = "expander-panel card"
+			expandedPanel.hidden = true
 
-			cardBody.appendChild(cardTitle);
-			cardBody.appendChild(cardDesc);
-			cardBody.appendChild(cardActions);
-			cardBody.appendChild(expandIndicator);
+			const panelBodyContainer = document.createElement("div")
+			panelBodyContainer.className = "body"
 
-			cardHeader.appendChild(logoThumb);
-			cardHeader.appendChild(cardBody);
+			const instructionsList = document.createElement("div")
+			instructionsList.className = "instructions"
+			_renderInstructions(instructionsList, client.instructions || "")
 
-			const expandedPanel = document.createElement("div");
-			expandedPanel.className = "expander-panel card";
-			expandedPanel.hidden = true;
+			panelBodyContainer.appendChild(instructionsList)
+			panelBodyContainer.appendChild(_createActionButtons(client, true))
 
-			const panelBodyContainer = document.createElement("div");
-			panelBodyContainer.className = "body";
+			expandedPanel.appendChild(panelBodyContainer)
 
-			const panelTitle = document.createElement("div");
-			panelTitle.className = "title";
-			panelTitle.textContent = client.name;
+			expanderContainer.appendChild(cardHeader)
+			expanderContainer.appendChild(expandedPanel)
 
-			const panelDesc = document.createElement("div");
-			panelDesc.className = "desc";
-			panelDesc.textContent = client.short || "";
+			fragment.appendChild(expanderContainer)
+		})
 
-			const instructionsList = document.createElement("div");
-			instructionsList.className = "instructions";
-			renderInstructions(instructionsList, client.instructions || "");
+		host.appendChild(fragment)
 
-			const panelActions = document.createElement("div");
-			panelActions.className = "actions";
-
-			if (client.downloadUrl) {
-				const panelDownloadBtn = document.createElement("a");
-				panelDownloadBtn.className = "btn primary";
-				panelDownloadBtn.href = client.downloadUrl;
-				panelDownloadBtn.target = "_blank";
-				panelDownloadBtn.rel = "noopener noreferrer";
-				panelDownloadBtn.textContent = `Get ${client.name}`;
-				panelActions.appendChild(panelDownloadBtn);
-			}
-
-			if (client.importHref) {
-				const panelImportBtn = document.createElement("a");
-				panelImportBtn.className = "btn neutral";
-				panelImportBtn.href = client.importHref;
-				panelImportBtn.download = "";
-				panelImportBtn.textContent = client.importLabel || "Import";
-				panelActions.appendChild(panelImportBtn);
-			} else if (!client.downloadUrl) {
-				const importNote = document.createElement("div");
-				importNote.className = "hint";
-				importNote.textContent = "No download or import available";
-				panelActions.appendChild(importNote);
-			}
-
-			panelBodyContainer.appendChild(instructionsList);
-			panelBodyContainer.appendChild(panelActions);
-			expandedPanel.appendChild(panelBodyContainer);
-
-			expanderContainer.appendChild(cardHeader);
-			expanderContainer.appendChild(expandedPanel);
-
-			fragment.appendChild(expanderContainer);
-		});
-
-		host.appendChild(fragment);
-
-		const EXPANDER_DELEGATED = "delegated";
+		// Event delegation
+		const EXPANDER_DELEGATED = "delegated"
 		if (host.dataset.expanderDelegated !== EXPANDER_DELEGATED) {
 			host.addEventListener("click", (event) => {
-				const clickTarget = event.target;
-				if (!(clickTarget instanceof Element)) return;
+				const clickTarget = event.target
+				if (!(clickTarget instanceof Element)) return
+				if (clickTarget.closest(".actions")) return
 
-				if (clickTarget.closest(".actions")) return;
+				const headerElement = clickTarget.closest(".expander-head")
+				if (!headerElement || !host.contains(headerElement)) return
 
-				const headerElement = clickTarget.closest(".expander-head");
-				if (!headerElement || !host.contains(headerElement)) return;
+				const containerElement = headerElement.closest(".expander")
+				const panelElement = containerElement?.querySelector(".expander-panel")
+				if (!panelElement) return
 
-				const containerElement = headerElement.closest(".expander");
-				const panelElement = containerElement?.querySelector(".expander-panel");
-				if (!panelElement) return;
+				const isExpanded = headerElement.getAttribute("aria-expanded") === "true"
+				headerElement.setAttribute("aria-expanded", isExpanded ? "false" : "true")
+				panelElement.hidden = isExpanded
+				containerElement.classList.toggle("expanded", !isExpanded)
 
-				const isExpanded =
-					headerElement.getAttribute("aria-expanded") === "true";
-				headerElement.setAttribute(
-					"aria-expanded",
-					isExpanded ? "false" : "true",
-				);
-				panelElement.hidden = isExpanded;
-				containerElement.classList.toggle("expanded", !isExpanded);
-
-				const indicatorElement =
-					headerElement.querySelector(".expand-indicator");
+				const indicatorElement = headerElement.querySelector(".expand-indicator")
 				if (indicatorElement) {
-					indicatorElement.textContent = isExpanded ? "> Expand" : "< Collapse";
+					indicatorElement.textContent = isExpanded ? "> Expand" : "< Collapse"
 				}
-			});
+			})
 
 			host.addEventListener("keydown", (event) => {
-				const keyTarget = event.target;
-				if (!(keyTarget instanceof Element)) return;
+				const keyTarget = event.target
+				if (!(keyTarget instanceof Element)) return
 
-				const headerElement = keyTarget.closest(".expander-head");
-				if (!headerElement || !host.contains(headerElement)) return;
+				const headerElement = keyTarget.closest(".expander-head")
+				if (!headerElement || !host.contains(headerElement)) return
 
 				if (event.key === "Enter" || event.key === " ") {
-					event.preventDefault();
-					headerElement.click();
+					event.preventDefault()
+					headerElement.click()
 				}
-			});
+			})
 
-			host.dataset.expanderDelegated = EXPANDER_DELEGATED;
+			host.dataset.expanderDelegated = EXPANDER_DELEGATED
 		}
 	} catch (error) {
-		console.error("Failed to mount expanders:", error);
-		host.innerHTML =
-			'<div class="error-message">Failed to load FTP info - check neuro-ftp-clients.json?</div>';
-		throw error;
+		console.error("Failed to mount expanders:", error)
+		host.innerHTML = '<div class="error-message">Failed to load FTP info.</div>'
+		throw error
 	}
 }

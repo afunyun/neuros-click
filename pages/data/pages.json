@@ -9,7 +9,7 @@
 		},
 		{
 			"name": "NeuroSynth Project",
-			"description": "Details on the NeuroSynth project, an effort to recreate a production quality Neuro-sama voicebank.\nAlso contains information on commissioning a custom Neuro song cover from Superbox using NeuroSynth, how to support the project, and more.",
+			"description": "NeuroSynth, aiming to recreate Neuro's singing voice via RVC. \nEver wanted a song covered but it hasn't been picked for karaoke? You can commission it here! Details inside.",
 			"image": "./images/signature-look-outline.png",
 			"href": "./neuro-synth/"
 		}

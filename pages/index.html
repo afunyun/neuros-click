@@ -1,85 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script>
-      (function () {
-        try {
-          var KEY = 'theme';
-          var saved = localStorage.getItem(KEY);
-          var html = document.documentElement;
-          if (saved === 'light' || saved === 'dark') {
-            html.setAttribute('data-theme', saved);
-          } else {
-            var prefersDark =
-              window.matchMedia &&
-              window.matchMedia('(prefers-color-scheme: dark)').matches;
-            html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-          }
-        } catch (e) {
-          /* no-op */
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var KEY = 'theme'
+        var saved = localStorage.getItem(KEY)
+        var html = document.documentElement
+        if (saved === 'light' || saved === 'dark') {
+          html.setAttribute('data-theme', saved)
+        } else {
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+          html.setAttribute('data-theme', prefersDark ? 'dark' : 'light')
         }
-      })();
-    </script>
-    <meta content="neuros.click - Superbox's Neuro content" property="og:title" />
-    <meta
-      content="A collection of sites created or maintained by Superbox for the Neuro-sama Community."
-      property="og:description"
-    />
-    <meta content="https://neuros.click" property="og:url" />
-    <meta content="https://neuros.click/images/Neuro-fumo.png" property="og:image" />
-    <meta content="#0077FF" data-react-helmet="true" name="theme-color" />
-    <link rel="icon" type="image/png" href="./favicon.ico" />
-    <title>neuros.click</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link
-      rel="preload"
-      href="./fonts/First Coffee.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="preload" href="./data/site.json" as="fetch" crossorigin />
-    <link rel="preload" href="./data/pages.json" as="fetch" crossorigin />
-  </head>
+      } catch (e) {
+        /* no-op */
+      }
+    })();
+  </script>
+  <meta content="neuros.click - Superbox's Neuro content" property="og:title" />
+  <meta content="A collection of sites created or maintained by Superbox for the Neuro-sama Community."
+    property="og:description" />
+  <meta content="https://neuros.click" property="og:url" />
+  <meta content="https://neuros.click/images/Neuro-fumo.png" property="og:image" />
+  <meta content="#0077FF" data-react-helmet="true" name="theme-color" />
+  <link rel="icon" type="image/png" href="./favicon.ico" />
+  <title>neuros.click</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="preload" href="./fonts/First Coffee.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./data/site.json" as="fetch" crossorigin />
+  <link rel="preload" href="./data/pages.json" as="fetch" crossorigin />
+</head>
 
-  <body>
-    <div class="wrap">
-      <header>
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <h1 id="page-title">neuros.click</h1>
-        </div>
-        <div class="toolbar">
-          <button id="theme-btn" class="btn" title="Toggle theme">Toggle theme</button>
-          <a class="btn primary" href="#" id="primary-cta" hidden></a>
-        </div>
-      </header>
-      <p id="page-desc" class="lede">
-        A collection of sites created or maintained by Superbox for the Neuro-sama
-        Community
-      </p>
-      <h2>Pages</h2>
-      <p class="hint">
-        Below are the currently maintained pages. Click on a card to open the
-        corresponding site.
-      </p>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1 id="page-title">neuros.click</h1>
+      </div>
+      <div class="toolbar">
+        <button id="theme-btn" class="btn" title="Toggle theme">Toggle theme</button>
+        <a class="btn primary" href="#" id="primary-cta" hidden></a>
+      </div>
+    </header>
+    <p id="page-desc" class="lede">
+      A collection of sites created or maintained by Superbox for the Neuro-sama
+      Community
+    </p>
+    <h2>Pages</h2>
+    <p class="hint">
+      Below are the currently maintained pages. Click on a card to open the
+      corresponding site.
+    </p>
 
-      <div id="grid" class="grid" role="list"></div>
+    <div id="grid" class="grid" role="list"></div>
 
-      <footer>
-        <div class="footer-content">
-          <span id="foot"></span>
-          <div class="footer-disclaimer">
-            Unaffiliated with <a href="https://vedal.ai">vedal.ai</a>
-          </div>
+    <footer>
+      <div class="footer-content">
+        <span id="foot"></span>
+        <div class="footer-disclaimer">
+          Unaffiliated with <a href="https://vedal.ai">vedal.ai</a>
         </div>
-        <div class="footer-attribution">
-          <div>Site by <a href="https://github.com/afunyun/neuros-click">afunyun</a></div>
-        </div>
-      </footer>
-    </div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+      </div>
+      <div class="footer-attribution">
+        <div>Site by <a href="https://github.com/afunyun/neuros-click">afunyun</a></div>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
 </html>
